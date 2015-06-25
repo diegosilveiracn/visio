@@ -1,49 +1,34 @@
-<h3>Consulta de Pacientes</h3>
+<h3>Busca de Pacientes</h3>
 
-<p>
-	<?php echo $this->Html->link('Novo',	array ('controller' => 'pacientes', 'action' => 'add',$proprietario_id)); ?> | 
-	<?php echo $this->Html->link('Buscar',	array ('controller' => 'pacientes', 'action' => 'search')); ?>
-</p>
+<?php
+
+echo $this->Form->create('Paciente');
+
+echo $this->Form->input('parte_nome', array('label' => 'Nome'));
+
+echo $this->Form->end('Buscar');
+
+?>
 
 <table>
     <tr>
-		<th></th>
         <th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
         <th>Espécie</th>
 	    <th><?php echo $this->Paginator->sort('Proprietario.nome', 'Proprietário'); ?></th>
-		<th></th>
-        <th></th>
-        <th></th>
     </tr>
 
     <?php foreach ($pacientes as $paciente): ?>
         <tr>
-            <td>
-				<?php echo $this->Html->link('Abrir', array ('controller' => 'pacientes', 'action' => 'view', $paciente['Paciente']['id'])); ?>
-            </td>
-
-			<td><?php echo $paciente['Paciente']['nome']?></td>
+			<td>
+				<?php echo $this->Html->link($paciente['Paciente']['nome'],
+				array('controller' => 'pacientes', 'action' => 'index', $paciente['Proprietario']['id'], $paciente['Paciente']['id'])); ?>
+			</td>
 
 			<td><?php echo $paciente['Paciente']['especie']?></td>
 	    
 			<td>
 				<?php echo $this->Html->link($paciente['Proprietario']['nome'],
 				array('controller' => 'proprietarios', 'action' => 'index', $paciente['Proprietario']['id'])); ?>
-			</td>
-
-			<td>
-				<?php echo $this->Html->link('Consulta', array ('controller' => 'consultas', 'action' => 'index', $paciente['Paciente']['id'])); ?>
-			</td>
-	    		
-			<td>
-				<?php echo $this->Html->link('Alterar', array ('action' => 'edit', $paciente['Paciente']['id'])); ?>
-			</td>
-	
-			<td>
-				<?php echo $this->Html->link('Excluir', 
-						array('action' => 'delete', $paciente['Paciente']['id']),
-						array('confirm' => 'Tem certeza que deseja excluir?')); 
-				?>						
 			</td>
         </tr>
     <?php endforeach; ?>

@@ -61,6 +61,16 @@ class PacientesController extends AppController {
         }
     }
 
+	public function search(){
+		if ($this->request->is('post')) {
+			$pacientes = $this->paginate('Paciente', array('Paciente.nome LIKE' => '%'.$this->request->data['Paciente']['parte_nome'].'%'));
+		} else {
+			$pacientes = $this->paginate('Paciente');
+		}
+		
+		$this->set('pacientes', $pacientes);
+	}
+
     private function getProprietarios($proprietario_id = null){
 		if ($proprietario_id == null) {
             $proprietarios = $this->Paciente->Proprietario->find('list' , array('fields' => array('id','nome'), 'order' => array('Proprietario.nome ASC')));
