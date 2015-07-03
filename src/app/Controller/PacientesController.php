@@ -2,26 +2,26 @@
 
 class PacientesController extends AppController {
 
-    public $helpers = array ('Html','Form');
-    
-    public $name = 'Pacientes';
+  public $helpers = array ('Html','Form');
+
+  public $name = 'Pacientes';
 
 	public $paginate = array(
         'limit' => 10,
         'order' => array('Paciente.nome' => 'ASC'));
 
-    public function index($proprietario_id = null, $id = null) {
+  public function index($proprietario_id = null, $id = null) {
 		if($id != null){
 			$pacientes = $this->paginate('Paciente', array('Paciente.id' => $id));
 		}else if ($proprietario_id != null) {
 			$pacientes = $this->paginate('Paciente', array('Paciente.proprietario_id' => $proprietario_id));
 		}else{
 			$pacientes = $this->paginate('Paciente');
-		}
+    }
 
 		$this->set('pacientes', $pacientes);
 		$this->set('proprietario_id', $proprietario_id);
-    }
+  }
 
     public function view($id = null) {
         $this->Paciente->id = $id;
@@ -67,14 +67,14 @@ class PacientesController extends AppController {
 		} else {
 			$pacientes = $this->paginate('Paciente');
 		}
-		
+
 		$this->set('pacientes', $pacientes);
 	}
 
     private function getProprietarios($proprietario_id = null){
 		if ($proprietario_id == null) {
             $proprietarios = $this->Paciente->Proprietario->find('list' , array('fields' => array('id','nome'), 'order' => array('Proprietario.nome ASC')));
-		}else{ 
+		}else{
 			$proprietarios = $this->Paciente->Proprietario->find('list' , array('conditions' => array('Proprietario.id' => $proprietario_id), 'fields' => array('id','nome')));
 		}
 

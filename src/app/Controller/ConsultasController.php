@@ -1,10 +1,10 @@
 <?php
 
 class ConsultasController extends AppController {
-	
-    public $helpers = array ('Html','Form');
 
-    public $name = 'Consultas';
+  public $helpers = array ('Html','Form');
+
+  public $name = 'Consultas';
 
 	public $paginate = array(
         'limit' => 10,
@@ -19,14 +19,15 @@ class ConsultasController extends AppController {
 		} else return true;
 	}
 
-    public function index($paciente_id = null) {
-		if($paciente_id == null){
-			$consultas =  $this->paginate('Consulta');
-		}else{
-			$consultas =  $this->paginate('Consulta', array('Paciente.id' => $paciente_id));
-		}
-			
-		$this->set('consultas', $consultas);
+  public function index($paciente_id = null) {
+			if($paciente_id == null){
+				$consultas =  $this->paginate('Consulta');
+			}else{
+				$consultas =  $this->paginate('Consulta', array('Paciente.id' => $paciente_id));
+			}
+
+			$this->set('consultas', $consultas);
+      $this->set('paciente_id', $paciente_id);
     }
 
     public function view($id = null) {
@@ -42,14 +43,14 @@ class ConsultasController extends AppController {
                 $this->redirect(array('action' => 'index'));
             }
         }
-        
+
         $this->getPacientes($paciente_id);
         $this->getClinicas();
     }
 
     public function edit($id = null, $paciente_id = null) {
         $this->Consulta->id = $id;
-        
+
         if ($this->request->is('get')) {
             $this->request->data = $this->Consulta->read();
         } else {
@@ -58,7 +59,7 @@ class ConsultasController extends AppController {
                $this->redirect(array('action' => 'index'));
             }
         }
-        
+
         $this->getPacientes($paciente_id);
         $this->getClinicas();
     }
@@ -69,17 +70,17 @@ class ConsultasController extends AppController {
             $this->redirect(array('action' => 'index'));
         }
     }
-    
+
     private function getPacientes($paciente_id = null){
 		if ($paciente_id == null) {
             $pacientes = $this->Consulta->Paciente->find('list' , array('fields' => array('id','nome'), 'order' => array('Paciente.nome ASC')));
 		}else{
 			$pacientes = $this->Consulta->Paciente->find('list' , array('conditions' => array('Paciente.id' => $paciente_id), 'fields' => array('id','nome')));
 		}
-		
+
 		$this->set('pacientes', $pacientes);
     }
-    
+
     private function getClinicas(){
         $clinicas = $this->Consulta->Clinica->find('list' , array('fields' => array('id','nome'), 'order' => array('Clinica.nome ASC')));
 		$this->set('clinicas', $clinicas);
