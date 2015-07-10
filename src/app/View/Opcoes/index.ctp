@@ -11,9 +11,13 @@
 <p><?php echo $this->Html->link('Paciente', array('controller' => 'pacientes', 'action' => 'index'));?></p>
 
 <p>
-	<?php	
+	<?php
 		  if($this->Session->read('Auth.User.role') == 1){
 			  echo $this->Html->link('Usuário', array('controller' => 'users', 'action' => 'index'));
 		  }
 	?>
+</p>
+
+<p>
+	<?php echo $this->Html->link('Sair', array('controller' => 'users', 'action' => 'logout')); ?>
 </p>
