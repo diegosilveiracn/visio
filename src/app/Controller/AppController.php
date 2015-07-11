@@ -40,11 +40,11 @@ class AppController extends Controller {
             'authorize' => array('Controller')
         )
     );
-    
+
     public function isAuthorized($user) {
 		return true;
 	}
-	
+
 	function beforeFilter(){
 	    $this->Auth->authError = 'Acesso não autorizado!';
 	}

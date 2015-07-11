@@ -3,7 +3,7 @@
 class UsersController extends AppController{
 
     public $helpers = array ('Html','Form');
-    
+
     public $name = 'Users';
 
 	public $paginate = array(
@@ -36,7 +36,7 @@ class UsersController extends AppController{
             }
         }
 
-        $this->getOftalmologista();        
+        $this->getOftalmologista();
     }
 
     public function edit($id = null) {
@@ -51,7 +51,7 @@ class UsersController extends AppController{
             }
         }
 
-        $this->getOftalmologista();  
+        $this->getOftalmologista();
     }
 
     public function delete($id = null) {
@@ -62,19 +62,23 @@ class UsersController extends AppController{
     }
 
 	public function login() {
-		if (!$this->request->is('get')) {
-			if ($this->Auth->login()) {
-				$this->redirect($this->Auth->redirect());
-			} else {
-				$this->Session->setFlash(__('Usuário e/ou senha inválido(s)!'));
-			}
-		}
+    if($this->Session->check('Auth.User')){
+      $this->redirect($this->Auth->redirect());
+    } else {
+      if (!$this->request->is('get')) {
+  			if ($this->Auth->login()) {
+  				$this->redirect($this->Auth->redirect());
+  			} else {
+  				$this->Session->setFlash(__('Usuário e/ou senha inválido(s)!'));
+  			}
+  		}
+    }
 	}
 
 	public function logout() {
 		$this->redirect($this->Auth->logout());
 	}
-	
+
 	private function getOftalmologista(){
 		$oftalmologistas = $this->User->Oftalmologista->find('list' , array('fields' => array('id','nome'), 'order' => array('Oftalmologista.nome ASC')));
 		$this->set('oftalmologistas', $oftalmologistas);
