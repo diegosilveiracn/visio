@@ -2,9 +2,9 @@
 
 class UsersController extends AppController{
 
-    public $helpers = array ('Html','Form');
+  public $helpers = array ('Html','Form');
 
-    public $name = 'Users';
+  public $name = 'Users';
 
 	public $paginate = array(
         'limit' => 10,
@@ -19,7 +19,7 @@ class UsersController extends AppController{
 	}
 
     public function index() {
-		$users = $this->paginate('User');
+		    $users = $this->paginate('User');
         $this->set('users', $users);
     }
 
@@ -36,7 +36,8 @@ class UsersController extends AppController{
             }
         }
 
-        $this->getOftalmologista();
+        $oftalmologistas = $this->User->Oftalmologista->find('list', array('fields' => array('id','nome'), 'conditions' => 'Oftalmologista.id NOT IN (select oftalmologista_id from users)', 'order' => array('Oftalmologista.nome ASC')));
+        $this->set('oftalmologistas', $oftalmologistas);
     }
 
     public function edit($id = null) {
@@ -51,7 +52,8 @@ class UsersController extends AppController{
             }
         }
 
-        $this->getOftalmologista();
+        $oftalmologistas = $this->User->Oftalmologista->find('list' , array('fields' => array('id','nome'), 'order' => array('Oftalmologista.nome ASC')));
+    		$this->set('oftalmologistas', $oftalmologistas);
     }
 
     public function delete($id = null) {
@@ -77,11 +79,6 @@ class UsersController extends AppController{
 
 	public function logout() {
 		$this->redirect($this->Auth->logout());
-	}
-
-	private function getOftalmologista(){
-		$oftalmologistas = $this->User->Oftalmologista->find('list' , array('fields' => array('id','nome'), 'order' => array('Oftalmologista.nome ASC')));
-		$this->set('oftalmologistas', $oftalmologistas);
 	}
 }
 
