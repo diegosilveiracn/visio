@@ -11,7 +11,7 @@ class UsersController extends AppController{
         'order' => array('Oftalmologista.nome' => 'ASC'));
 
 	public function isAuthorized($user) {
-		if ($this->action === 'logout') {
+		if ($this->action === 'logout' || $this->action === 'password') {
             return true;
         } else if (isset($user['role']) && $user['role'] === '1') {
 					return true;
@@ -80,6 +80,21 @@ class UsersController extends AppController{
 	public function logout() {
 		$this->redirect($this->Auth->logout());
 	}
+
+  public function password(){
+    if($this->request->is('post')){
+      if($this->request->data['User']['new_password'] === $this->request->data['User']['confirm_password'] ){
+        $this->request->data['User']['id'] =  $this->Session->read('Auth.User.id');
+        $this->request->data['User']['password'] = $this->request->data['User']['new_password'];
+        if ($this->User->save($this->request->data)) {
+           $this->Session->setFlash('Alteração realizada com sucesso!');
+           $this->redirect(array('controller' => 'opcoes' ,'action' => 'index'));
+        }
+      }else{
+        $this->Session->setFlash(__('As senhas são diferentes!'));
+      }
+    }
+  }
 }
 
 ?>

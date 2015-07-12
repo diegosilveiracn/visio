@@ -18,6 +18,8 @@
 	?>
 </p>
 
+<p><?php echo $this->Html->link('Configuração', array('controller' => 'users', 'action' => 'password'));?></p>
+
 <p>
 	<?php echo $this->Html->link('Sair', array('controller' => 'users', 'action' => 'logout')); ?>
 </p>
