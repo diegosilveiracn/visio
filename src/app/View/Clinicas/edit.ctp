@@ -2,12 +2,12 @@
 
 <?php
 
-echo $this->Form->create('Clinica', array('action' => 'edit'));
+echo $this->Form->create('Clinica', array('action' => 'edit', 'novalidate' => 'true'));
 
 echo $this->Form->input('id', array('type' => 'hidden'));
 echo $this->Form->input('nome');
 echo $this->Form->input('endereco', array('label' => 'Endereço'));
-echo $this->Form->input('numero', array('label' => 'Número'));	 
+echo $this->Form->input('numero', array('label' => 'Número'));
 echo $this->Form->input('complemento');
 echo $this->Form->input('bairro');
 echo $this->Form->input('cidade');
@@ -37,7 +37,7 @@ echo $this->Form->input('uf', array('options' => array('AC' => 'Acre',
 																			 'SC' => 'Santa Catarina',
 																			 'SP' => 'São Paulo',
 																			 'SE' => 'Sergipe',
-																			 'TO' => 'Tocantins'                                                          
+																			 'TO' => 'Tocantins'
                                                           )
                                ,'empty' => ''
                                ,'label' => 'UF')

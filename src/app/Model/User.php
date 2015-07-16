@@ -9,11 +9,24 @@ class User extends AppModel{
   public $belongsTo = 'Oftalmologista';
 
 	public $validate = array(
-        'oftalmologista_id' => array('rule' => 'notEmpty'),
-        'username' => array('rule' => 'notEmpty'),
-        'password' => array('rule' => 'notEmpty'),
-        'new_password' => array('rule' => 'notEmpty'),
-        'confirm_password' => array('rule' => 'notEmpty'),
+        'oftalmologista_id' => array(
+                        'rule' => 'notEmpty',
+                        'message' => 'O campo "oftalmologista" é obrigatório!'
+                        ),
+        'username' => array(
+                        'rule' => 'notEmpty',
+                        'message' => 'O campo "usuário" é obrigatório!'
+                        ),
+        'password' => array(
+                        'rule' => 'notEmpty',
+                        'message' => 'O campo "senha é obrigatório!"'
+                        ),
+        'new_password' => array(
+                        'rule' => 'notEmpty',
+                        'message' => 'O campo "nova senha" é obrigatório!'),
+        'confirm_password' => array(
+                        'rule' => 'notEmpty',
+                        'message' => 'O campo "confirmar senha" é obrigatório!'),
         'role' => array('rule' => 'notEmpty')
     );
 

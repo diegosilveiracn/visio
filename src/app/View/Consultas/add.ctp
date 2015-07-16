@@ -2,7 +2,7 @@
 
 <?php
 
-echo $this->Form->create('Consulta');
+echo $this->Form->create('Consulta', array('action' => 'add', 'novalidate' => 'true'));
 
 echo $this->Form->input('id', array('type' => 'hidden'));
 echo $this->Form->input('created', array('label' => 'Data da Consulta','type' => 'date','dateFormat' => 'DMY'));

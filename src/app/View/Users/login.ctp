@@ -1,7 +1,12 @@
-<?php echo $this->Session->flash('auth'); ?>
-<?php echo $this->Form->create('User');?>
-<?php echo $this->Form->input('username', array('label' => 'Usuário'));
-      echo $this->Form->input('password', array('label' => 'Senha'));
-?>
+<?php
 
-<?php echo $this->Form->end(__('Acessar'));?>
+echo $this->Session->flash('auth');
+
+echo $this->Form->create('User', array('action' => 'login', 'novalidate' => 'true'));
+
+echo $this->Form->input('username', array('label' => 'Usuário'));
+echo $this->Form->input('password', array('label' => 'Senha'));
+
+echo $this->Form->end('Acessar');
+
+?>

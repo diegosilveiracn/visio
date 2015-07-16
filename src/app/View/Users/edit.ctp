@@ -2,7 +2,7 @@
 
 <?php
 
-echo $this->Form->create('User', array('action' => 'edit'));
+echo $this->Form->create('User', array('action' => 'edit', 'novalidate' => 'true'));
 
 echo $this->Form->input('id', array('type' => 'hidden'));
 echo $this->Form->input('oftalmologista_id', array('label' => 'Oftalmologista','disabled' , 'options' => $oftalmologistas, 'empty' => ''));
