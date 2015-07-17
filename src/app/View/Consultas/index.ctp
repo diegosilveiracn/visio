@@ -12,38 +12,43 @@
         <th><?php echo $this->Paginator->sort('Clinica.nome', 'Clínica'); ?></th>
         <th></th>
         <th></th>
+        <th></th>
     </tr>
 
     <?php foreach ($consultas as $consulta): ?>
-        <tr>
-            <td>
-				<?php echo $this->Html->link('Abrir', array ('controller' => 'consultas', 'action' => 'view', $consulta['Consulta']['id'])); ?>
-            </td>
+    <tr>
+      <td>
+				    <?php echo $this->Html->link('Abrir', array ('controller' => 'consultas', 'action' => 'view', $consulta['Consulta']['id'])); ?>
+      </td>
 
 			<td>
-				<?php echo date('d/m/Y',strtotime($consulta['Consulta']['created']));?>
+				    <?php echo date('d/m/Y',strtotime($consulta['Consulta']['created']));?>
 			</td>
 
 			<td>
-				<?php echo $consulta['Consulta']['tipo_consulta'] == 1 ?'Normal':'Retorno';?>
+				    <?php echo $consulta['Consulta']['tipo_consulta'] == 1 ?'Normal':'Retorno';?>
 			</td>
 
-	        <td>
-                <?php echo $this->Html->link($consulta['Paciente']['nome'],
-					 array('controller' => 'pacientes', 'action' => 'index', $consulta['Paciente']['proprietario_id'], $consulta['Paciente']['id'])); ?>
-	        </td>
+	    <td>
+            <?php echo $this->Html->link($consulta['Paciente']['nome'],
+					       array('controller' => 'pacientes', 'action' => 'index', $consulta['Paciente']['proprietario_id'], $consulta['Paciente']['id'])); ?>
+	    </td>
 
 			<td>
-				<?php echo $this->Html->link($consulta['Oftalmologista']['nome'],
-					 array('controller' => 'oftalmologistas', 'action' => 'index', $consulta['Oftalmologista']['id'])); ?>
+				    <?php echo $this->Html->link($consulta['Oftalmologista']['nome'],
+					       array('controller' => 'oftalmologistas', 'action' => 'index', $consulta['Oftalmologista']['id'])); ?>
 			</td>
 
 			<td>
-                <?php echo $this->Html->link($consulta['Clinica']['nome'],
-					 array('controller' => 'clinicas', 'action' => 'index', $consulta['Clinica']['id'])); ?>
+            <?php echo $this->Html->link($consulta['Clinica']['nome'],
+					       array('controller' => 'clinicas', 'action' => 'index', $consulta['Clinica']['id'])); ?>
 			</td>
 
-	    	<td>
+      <td>
+            <?php echo $this->Html->link('Serviço', array ('controller' => 'servicos' ,'action' => 'index', $consulta['Consulta']['id'])); ?>
+      </td>
+
+      <td>
 				<?php echo $this->Html->link('Alterar', array ('action' => 'edit', $consulta['Consulta']['id'])); ?>
 			</td>
 

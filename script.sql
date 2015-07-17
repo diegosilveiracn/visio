@@ -34,7 +34,7 @@ create table proprietarios(
     uf varchar(2),
     cep varchar(11),
     email varchar(50),
-    telefone varchar(20)    
+    telefone varchar(20)
 );
 
 create table pacientes(
@@ -44,7 +44,7 @@ create table pacientes(
     especie varchar(50),
     raca varchar(50),
     sexo char,
-    proprietario_id int 
+    proprietario_id int
 );
 
 alter table pacientes
@@ -112,3 +112,12 @@ create table users(
 alter table users
 add constraint fk_users_oftalmologista foreign key (oftalmologista_id) references oftalmologistas(id);
 
+create table servicos(
+    id int auto_increment primary key,
+    descricao varchar(100),
+    valor float,
+    consulta_id int
+);
+
+alter table servicos
+add constraint fk_servicos_consultas foreign key (consulta_id) references consultas(id);
