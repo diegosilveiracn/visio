@@ -10,7 +10,7 @@ class Servico extends AppModel{
                    'message' => 'O campo "descrição" é obrigatorio!'
                  ),
          'valor' => array(
-                   'rule' => 'notEmpty',
+                   'rule' => array('decimal', '2'),
                    'message' => 'O campo "valor" é obrigatorio!'
                  )
       );
