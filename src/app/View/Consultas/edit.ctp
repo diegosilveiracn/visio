@@ -15,6 +15,8 @@ echo $this->Form->input('diagnostico', array('label' => 'Diagnóstico'));
 echo $this->Form->input('tratamento');
 ?>
 
+<div id="direita">
+
 <h3>Olho Direito</h3>
 <hr/>
 
@@ -38,6 +40,10 @@ echo $this->Form->input('fundo_vitreo_d', array('label' => 'Fundo e Vítreo'));
 
 ?>
 
+</div>
+
+<div id="esquerda">
+
 <h3>Olho Esquerdo</h3>
 <hr/>
 
@@ -59,6 +65,10 @@ echo $this->Form->input('pupila_iris_e', array('label' => 'Pupila e Íris'));
 echo $this->Form->input('lente_e', array('label' => 'Lente'));
 echo $this->Form->input('fundo_vitreo_e', array('label' => 'Fundo e Vítreo'));
 
-echo $this->Form->end('Alterar');
+?>
 
+<div>
+
+<?php
+  echo $this->Form->end('Alterar');
 ?>
