@@ -1,9 +1,9 @@
 <?php
 
 class ProprietariosController extends AppController {
-	
+
     public $helpers = array ('Html','Form');
-    
+
     public $name = 'Proprietarios';
 
 	public $paginate = array(
@@ -14,10 +14,10 @@ class ProprietariosController extends AppController {
 		if($id == null){
 			$proprietarios = $this->paginate('Proprietario');
         }else{
-			$proprietarios = $this->paginate('Proprietario', array('Proprietario.id' => $id));		
+			$proprietarios = $this->paginate('Proprietario', array('Proprietario.id' => $id));
 		}
-		
-		$this->set('proprietarios', $proprietarios); 
+
+		$this->set('proprietarios', $proprietarios);
     }
 
     public function view($id = null) {
@@ -53,6 +53,16 @@ class ProprietariosController extends AppController {
             $this->redirect(array('action' => 'index'));
         }
     }
+
+		public function search(){
+			if ($this->request->is('post')) {
+				$proprietario = $this->paginate('Proprietario', array('Proprietario.nome LIKE' => '%'.$this->request->data['Proprietario']['parte_nome'].'%'));
+			} else {
+				$proprietario = $this->paginate('Proprietario');
+			}
+
+			$this->set('proprietarios', $proprietario);
+		}
 }
 
 ?>
