@@ -111,13 +111,3 @@ create table users(
 
 alter table users
 add constraint fk_users_oftalmologista foreign key (oftalmologista_id) references oftalmologistas(id);
-
-create table servicos(
-    id int auto_increment primary key,
-    descricao varchar(100),
-    valor float,
-    consulta_id int
-);
-
-alter table servicos
-add constraint fk_servicos_consultas foreign key (consulta_id) references consultas(id);

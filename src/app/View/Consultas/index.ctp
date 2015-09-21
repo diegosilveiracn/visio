@@ -12,7 +12,6 @@
         <th><?php echo $this->Paginator->sort('Clinica.nome', 'Clínica'); ?></th>
         <th></th>
         <th></th>
-        <th></th>
     </tr>
 
     <?php foreach ($consultas as $consulta): ?>
@@ -43,10 +42,6 @@
             <?php echo $this->Html->link($consulta['Clinica']['nome'],
 					       array('controller' => 'clinicas', 'action' => 'index', $consulta['Clinica']['id'])); ?>
 			</td>
-
-      <td>
-            <?php echo $this->Html->link('Serviço', array ('controller' => 'servicos' ,'action' => 'index', $consulta['Consulta']['id'])); ?>
-      </td>
 
       <td>
 				<?php echo $this->Html->link('Alterar', array ('action' => 'edit', $consulta['Consulta']['id'])); ?>
