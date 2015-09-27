@@ -112,7 +112,15 @@ p {
 	float: left;
 	width: 40%;
 }
-
+#login{
+background-color: #ffffff;
+border:1px solid #003d4c;
+position: absolute;
+width: 300px;
+padding: 15px;
+top: 20%;
+left:35%;
+}
 /** containers **/
 div.form,
 div.index,
