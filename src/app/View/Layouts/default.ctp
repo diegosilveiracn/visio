@@ -36,11 +36,10 @@
 			<div class="right">
 					<?php
 						if ($this->Session->check('Auth.User')) {
-								echo  'Bem-vindo(a), '.$this->Session->read('Auth.User.Oftalmologista.nome');
+								echo  'Bem-vindo(a), '.$this->Session->read('Auth.User.Oftalmologista.nome')." | ";
+								echo $this->Html->link('Sair', array('controller' => 'users', 'action' => 'logout'));
 						}
 					?>
-					|
-					<?php echo $this->Html->link('Sair', array('controller' => 'users', 'action' => 'logout')); ?>
 			</div>
 		</div>
 
