@@ -23,7 +23,10 @@
 			<div class="left">
 				<?php
 					if ($this->Session->check('Auth.User')) {
-						echo $this->Html->link('Menu', array('controller' => 'opcoes', 'action' => 'index'));
+						echo $this->Html->image("menu.png", array(
+    					"alt" => "Menu",
+    					'url' => array('controller' => 'opcoes', 'action' => 'index')
+));
 					}else{
 						echo 'Visio: Prontuário Oftalmológico Veterinário';
 					}
@@ -33,9 +36,11 @@
 			<div class="right">
 					<?php
 						if ($this->Session->check('Auth.User')) {
-								echo  'Bem-vindo(a), '.$this->Session->read('Auth.User.Oftalmologista.nome').'!';
+								echo  'Bem-vindo(a), '.$this->Session->read('Auth.User.Oftalmologista.nome');
 						}
 					?>
+					|
+					<?php echo $this->Html->link('Sair', array('controller' => 'users', 'action' => 'logout')); ?>
 			</div>
 		</div>
 
@@ -48,7 +53,7 @@
 	</div>
 
 	<?php
-		echo $this->element('sql_dump');
+		//echo $this->element('sql_dump');
 	?>
 </body>
 </html>
