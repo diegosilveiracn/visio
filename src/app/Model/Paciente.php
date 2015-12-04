@@ -6,7 +6,9 @@ class Paciente extends AppModel{
 
     public $belongsTo = 'Proprietario';
 
-    public $hasMany = 'Consulta';
+    public $hasMany = array(
+			'Consulta' => array('dependent' => true)
+		);
 
 		public $validate = array(
         'nome' => array(

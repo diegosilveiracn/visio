@@ -4,7 +4,9 @@ class Proprietario extends AppModel{
 
     public $name = 'Proprietario';
 
-    public $hasMany = 'Paciente';
+    public $hasMany = array(
+      'Paciente' => array('dependent' => true)
+    );
 
 	  public $validate = array(
         'nome' => array(
