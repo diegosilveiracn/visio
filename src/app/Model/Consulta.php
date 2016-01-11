@@ -2,9 +2,9 @@
 
 class Consulta extends AppModel{
 
-	public $name = "Consulta";
+	 public $name = "Consulta";
 
-    public $belongsTo = array('Paciente', 'Clinica', 'Oftalmologista');
+   public $belongsTo = array('Paciente', 'Clinica', 'Oftalmologista');
 
 	 public $validate = array(
 				'created' => array(

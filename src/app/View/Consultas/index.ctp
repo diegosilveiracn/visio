@@ -1,4 +1,4 @@
-<h3>Consulta de Consultas</h3>
+<h3>Consultas</h3>
 
 <p><?php echo $this->Html->link('Novo', array('controller' => 'consultas', 'action' => 'add', $paciente_id)); ?></p>
 
@@ -8,6 +8,7 @@
         <th><?php echo $this->Paginator->sort('created', 'Data'); ?></th>
         <th><?php echo $this->Paginator->sort('tipo_consulta', 'Tipo da Consulta'); ?></th>
         <th><?php echo $this->Paginator->sort('Paciente.nome', 'Paciente'); ?></th>
+        <th><?php echo $this->Paginator->sort('Proprietario.nome', 'Proprietário'); ?></th>
         <th><?php echo $this->Paginator->sort('Oftalmologista.nome', 'Oftalmologista'); ?></th>
         <th><?php echo $this->Paginator->sort('Clinica.nome', 'Clínica'); ?></th>
         <th></th>
@@ -31,6 +32,11 @@
 	    <td>
             <?php echo $this->Html->link($consulta['Paciente']['nome'],
 					       array('controller' => 'pacientes', 'action' => 'index', $consulta['Paciente']['proprietario_id'], $consulta['Paciente']['id'])); ?>
+	    </td>
+
+      <td>
+            <?php echo $this->Html->link($consulta['Paciente']['Proprietario']['nome'],
+					       array('controller' => 'proprietarios', 'action' => 'index', $consulta['Paciente']['Proprietario']['id'])); ?>
 	    </td>
 
 			<td>

@@ -20,6 +20,8 @@ class ConsultasController extends AppController {
 	}
 
   public function index($paciente_id = null) {
+      $this->Consulta->recursive = 2;
+
 			if($paciente_id == null){
 				$consultas =  $this->paginate('Consulta');
 			}else{

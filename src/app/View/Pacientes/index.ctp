@@ -1,7 +1,7 @@
-<h3>Consulta de Pacientes</h3>
+<h3>Pacientes</h3>
 
 <p>
-	<?php echo $this->Html->link('Novo',	array ('controller' => 'pacientes', 'action' => 'add',$proprietario_id)); ?> | 
+	<?php echo $this->Html->link('Novo',	array ('controller' => 'pacientes', 'action' => 'add',$proprietario_id)); ?> |
 	<?php echo $this->Html->link('Buscar',	array ('controller' => 'pacientes', 'action' => 'search')); ?>
 </p>
 
@@ -25,7 +25,7 @@
 			<td><?php echo $paciente['Paciente']['nome']?></td>
 
 			<td><?php echo $paciente['Paciente']['especie']?></td>
-	    
+
 			<td>
 				<?php echo $this->Html->link($paciente['Proprietario']['nome'],
 				array('controller' => 'proprietarios', 'action' => 'index', $paciente['Proprietario']['id'])); ?>
@@ -34,16 +34,16 @@
 			<td>
 				<?php echo $this->Html->link('Consulta', array ('controller' => 'consultas', 'action' => 'index', $paciente['Paciente']['id'])); ?>
 			</td>
-	    		
+
 			<td>
 				<?php echo $this->Html->link('Alterar', array ('action' => 'edit', $paciente['Paciente']['id'])); ?>
 			</td>
-	
+
 			<td>
-				<?php echo $this->Html->link('Excluir', 
+				<?php echo $this->Html->link('Excluir',
 						array('action' => 'delete', $paciente['Paciente']['id']),
-						array('confirm' => 'Tem certeza que deseja excluir?')); 
-				?>						
+						array('confirm' => 'Tem certeza que deseja excluir?'));
+				?>
 			</td>
         </tr>
     <?php endforeach; ?>
@@ -51,27 +51,27 @@
 
 <?php
     echo "<div class='paging'>";
- 
+
         // the 'first' page button
         echo $this->Paginator->first("Início");
-         
+
         // 'prev' page button,
         // we can check using the paginator hasPrev() method if there's a previous page
         // save with the 'next' page button
         if($this->Paginator->hasPrev()){
             echo $this->Paginator->prev("Anterior");
         }
-         
+
         // the 'number' page buttons
         echo $this->Paginator->numbers(array('modulus' => 2));
-         
+
         // for the 'next' button
         if($this->Paginator->hasNext()){
             echo $this->Paginator->next("Próximo");
         }
-         
+
         // the 'last' page button
         echo $this->Paginator->last("Fim");
-     
+
     echo "</div>";
 ?>

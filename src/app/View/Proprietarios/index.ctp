@@ -1,5 +1,4 @@
-<h3>Consulta de Proprietários</h3>
-
+<h3>Proprietários</h3>
 
 <p>
 	<?php echo $this->Html->link('Novo', array ('controller' => 'proprietarios', 'action' => 'add')); ?> |
