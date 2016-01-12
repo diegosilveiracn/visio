@@ -17,7 +17,7 @@ echo $this->Form->input('sexo', array(
     'empty' => ''
     ));
 
-echo $this->Form->input('proprietario_id', array('label' => 'Proprietário', 'options' => $proprietarios));
+echo $this->Form->input('proprietario_id', array('label' => 'Proprietário','disabled', 'options' => $proprietarios));
 
 echo $this->Form->end('Alterar');
 

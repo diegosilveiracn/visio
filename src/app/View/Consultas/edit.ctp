@@ -7,8 +7,7 @@ echo $this->Form->create('Consulta', array('action' => 'edit', 'novalidate' => '
 echo $this->Form->input('id', array('type' => 'hidden'));
 echo $this->Form->input('oftalmologista_id', array('type' => 'hidden'));
 echo $this->Form->input('created', array('label' => 'Data da Consulta','type' => 'date','dateFormat' => 'DMY'));
-echo $this->Form->input('tipo_consulta', array('label' => 'Tipo de Consulta', 'options' => array('1' => 'Normal', '+' => 'Retorno')));
-echo $this->Form->input('paciente_id', array('options' => $pacientes));
+echo $this->Form->input('paciente_id', array('disabled' , 'options' => $pacientes));
 echo $this->Form->input('clinica_id', array('label' => 'Clínica', 'options' => $clinicas));
 echo $this->Form->input('historico', array('label' => 'Histórico'));
 echo $this->Form->input('diagnostico', array('label' => 'Diagnóstico'));

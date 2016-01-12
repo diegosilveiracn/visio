@@ -1,4 +1,4 @@
-<h3>Visualização de Consulta</h3>
+<h3>Visualização de Retorno</h3>
 
 <h1>Data</h1>
 <p><?php echo date('d/m/Y',strtotime($consulta['Consulta']['created'])); ?></p>

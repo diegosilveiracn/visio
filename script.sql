@@ -1,7 +1,7 @@
 -- Banco de dados
 create database visio;
 
--- tabelas
+-- Tabelas
 create table oftalmologistas(
     id int auto_increment primary key,
     nome varchar(50),
@@ -89,7 +89,7 @@ create table consultas(
     fundo_vitreo_e text,
     diagnostico text,
     tratamento text,
-    tipo_consulta char
+    consulta_id int
 );
 
 alter table consultas
@@ -100,6 +100,9 @@ add constraint fk_consultas_clinicas foreign key (clinica_id) references clinica
 
 alter table consultas
 add constraint fk_consultas_pacientes foreign key (paciente_id) references pacientes(id);
+
+alter table consultas
+add constraint fk_consultas_consultas foreign key (consulta_id) references consultas(id);
 
 create table users(
     id int auto_increment primary key,

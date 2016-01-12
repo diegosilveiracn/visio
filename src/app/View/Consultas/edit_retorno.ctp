@@ -1,13 +1,15 @@
-<h3>Cadastro de Consulta</h3>
+<h3>Alteração de Retorno</h3>
 
 <?php
 
-echo $this->Form->create('Consulta', array('action' => 'add', 'novalidate' => 'true'));
+echo $this->Form->create('Consulta', array('action' => 'edit_retorno', 'novalidate' => 'true'));
 
 echo $this->Form->input('id', array('type' => 'hidden'));
+echo $this->Form->input('paciente_id', array('type' => 'hidden'));
+echo $this->Form->input('consulta_id', array('type' => 'hidden'));
 echo $this->Form->input('created', array('label' => 'Data da Consulta','type' => 'date','dateFormat' => 'DMY'));
-echo $this->Form->input('paciente_id', array('options' => $pacientes, 'empty' => ''));
-echo $this->Form->input('clinica_id', array('label' => 'Clínica', 'options' => $clinicas, 'empty' => ''));
+echo $this->Form->input('clinica_id', array('label' => 'Clínica', 'options' => $clinicas));
+
 echo $this->Form->input('historico', array('label' => 'Histórico'));
 echo $this->Form->input('diagnostico', array('label' => 'Diagnóstico'));
 echo $this->Form->input('tratamento');
@@ -29,7 +31,7 @@ echo $this->Form->input('palpebras_d', array('label' => 'Pálpebras'));
 echo $this->Form->input('aparelho_lacrimal_d', array('label' => 'Aparelho Lacrimal'));
 echo $this->Form->input('conjuntiva_d', array('label' => 'Conjuntiva'));
 echo $this->Form->input('cornea_d', array('label' => 'Córnea'));
-echo $this->Form->input('fluoresceina_d', array('label' => 'Fluoresceína', 'options' => array('-' => 'Negativo', '+' => 'Positivo')));
+echo $this->Form->input('fluoresceina_d', array('label' => 'Fluoresceína', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
 echo $this->Form->input('jones_d', array('label' => 'Jones', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
 echo $this->Form->input('camara_ant_angu_drenagem_d', array('label' => 'Câmera Anterior e Ângulo de drenagem'));
 echo $this->Form->input('pupila_iris_d', array('label' => 'Pupila e Íris'));
@@ -56,7 +58,7 @@ echo $this->Form->input('palpebras_e', array('label' => 'Pálpebras'));
 echo $this->Form->input('aparelho_lacrimal_e', array('label' => 'Aparelho Lacrimal'));
 echo $this->Form->input('conjuntiva_e', array('label' => 'Conjuntiva'));
 echo $this->Form->input('cornea_e', array('label' => 'Córnea'));
-echo $this->Form->input('fluoresceina_e', array('label' => 'Fluoresceína', 'options' => array('-' => 'Negativo', '+' => 'Positivo')));
+echo $this->Form->input('fluoresceina_e', array('label' => 'Fluoresceína', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
 echo $this->Form->input('jones_e', array('label' => 'Jones', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
 echo $this->Form->input('camara_ant_angu_drenagem_e', array('label' => 'Câmera Anterior e Ângulo de drenagem'));
 echo $this->Form->input('pupila_iris_e', array('label' => 'Pupila e Íris'));
@@ -65,8 +67,8 @@ echo $this->Form->input('fundo_vitreo_e', array('label' => 'Fundo e Vítreo'));
 
 ?>
 
-</div>
+<div>
 
 <?php
-  echo $this->Form->end('Salvar');
+  echo $this->Form->end('Alterar');
 ?>

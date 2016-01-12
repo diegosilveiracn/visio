@@ -1,16 +1,16 @@
-<h3>Consultas</h3>
+<h3>Retornos</h3>
 
-<p><?php echo $this->Html->link('Novo', array('controller' => 'consultas', 'action' => 'add', $paciente_id)); ?></p>
+<p><?php echo $this->Html->link('Novo', array('controller' => 'consultas', 'action' => 'add_retorno', $paciente_id, $consulta_id)); ?></p>
 
 <table>
     <tr>
 		<th></th>
         <th><?php echo $this->Paginator->sort('created', 'Data'); ?></th>
-        <th><?php echo $this->Paginator->sort('Paciente.nome', 'Paciente'); ?></th>
-        <th><?php echo $this->Paginator->sort('Proprietario.nome', 'Proprietário'); ?></th>
+        <th><?php echo $this->Paginator->sort('Paciente.historico', 'Histórico'); ?></th>
+        <th><?php echo $this->Paginator->sort('Paciente.diagostico', 'Diagnóstico'); ?></th>
+        <th><?php echo $this->Paginator->sort('Paciente.tratamento', 'Tratamento'); ?></th>
         <th><?php echo $this->Paginator->sort('Oftalmologista.nome', 'Oftalmologista'); ?></th>
         <th><?php echo $this->Paginator->sort('Clinica.nome', 'Clínica'); ?></th>
-        <th></th>
         <th></th>
         <th></th>
     </tr>
@@ -18,7 +18,7 @@
     <?php foreach ($consultas as $consulta): ?>
     <tr>
       <td>
-				    <?php echo $this->Html->link('Abrir', array ('controller' => 'consultas', 'action' => 'view', $consulta['Consulta']['id'])); ?>
+				    <?php echo $this->Html->link('Abrir', array ('controller' => 'consultas', 'action' => 'view_retorno', $consulta['Consulta']['id'])); ?>
       </td>
 
 			<td>
@@ -26,16 +26,18 @@
 			</td>
 
 	    <td>
-            <?php echo $this->Html->link($consulta['Paciente']['nome'],
-					       array('controller' => 'pacientes', 'action' => 'index', $consulta['Paciente']['proprietario_id'], $consulta['Paciente']['id'])); ?>
+            <?php echo $consulta['Consulta']['historico']; ?>
 	    </td>
 
       <td>
-            <?php echo $this->Html->link($consulta['Paciente']['Proprietario']['nome'],
-					       array('controller' => 'proprietarios', 'action' => 'index', $consulta['Paciente']['Proprietario']['id'])); ?>
+            <?php echo $consulta['Consulta']['diagnostico']; ?>
 	    </td>
 
 			<td>
+            <?php echo $consulta['Consulta']['tratamento']; ?>
+			</td>
+
+      <td>
 				    <?php echo $this->Html->link($consulta['Oftalmologista']['nome'],
 					       array('controller' => 'oftalmologistas', 'action' => 'index', $consulta['Oftalmologista']['id'])); ?>
 			</td>
@@ -46,17 +48,12 @@
 			</td>
 
       <td>
-            <?php echo $this->Html->link('Retorno',
-                array('controller' => 'consultas', 'action' => 'index_retorno', $consulta['Paciente']['id'], $consulta['Consulta']['id'])); ?>
-      </td>
-
-      <td>
-				<?php echo $this->Html->link('Alterar', array ('action' => 'edit', $consulta['Consulta']['id'])); ?>
+				<?php echo $this->Html->link('Alterar', array ('action' => 'edit_retorno', $consulta['Consulta']['id'])); ?>
 			</td>
 
 			<td>
 				<?php echo $this->Html->link('Excluir',
-					array ('action' => 'delete', $consulta['Consulta']['id']),
+					array ('action' => 'delete_retorno', $consulta['Consulta']['id'], $consulta['Paciente']['id'], $consulta['Consulta']['consulta_id']),
 					array('confirm' => 'Tem certeza que deseja excluir?'));
 				?>
 	    	</td>
