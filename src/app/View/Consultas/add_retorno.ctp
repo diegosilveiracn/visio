@@ -2,7 +2,7 @@
 
 <?php
 
-echo $this->Form->create('Consulta', array('action' => 'add_retorno', 'novalidate' => 'true'));
+echo $this->Form->create('Consulta', array('action' => 'add_retorno', 'novalidate' => 'true', 'type' => 'file'));
 
 echo $this->Form->input('id', array('type' => 'hidden'));
 echo $this->Form->input('paciente_id', array('value' => $paciente_id, 'type' => 'hidden'));
@@ -37,6 +37,7 @@ echo $this->Form->input('camara_ant_angu_drenagem_d', array('label' => 'Câmera 
 echo $this->Form->input('pupila_iris_d', array('label' => 'Pupila e Íris'));
 echo $this->Form->input('lente_d', array('label' => 'Lente'));
 echo $this->Form->input('fundo_vitreo_d', array('label' => 'Fundo e Vítreo'));
+echo $this->Form->input('upload_d', array('type'=>'file', 'label' => 'Imagem do olho'));
 
 ?>
 
@@ -64,6 +65,7 @@ echo $this->Form->input('camara_ant_angu_drenagem_e', array('label' => 'Câmera 
 echo $this->Form->input('pupila_iris_e', array('label' => 'Pupila e Íris'));
 echo $this->Form->input('lente_e', array('label' => 'Lente'));
 echo $this->Form->input('fundo_vitreo_e', array('label' => 'Fundo e Vítreo'));
+echo $this->Form->input('upload_e', array('type'=>'file', 'label' => 'Imagem do olho'));
 
 ?>
 

@@ -117,4 +117,10 @@
      <td><?php echo $consulta['Consulta']['fundo_vitreo_d']; ?></td>
      <td><?php echo $consulta['Consulta']['fundo_vitreo_e']; ?></td>
    </tr>
+
+   <tr>
+     <td>Imagem</td>
+     <td><?php echo $this->Html->image('/img/consultas/'.$consulta['Consulta']['imagem_e'], array('alt' => 'Imagem do olho esquerdo.', 'height' => 200)); ?></td>
+     <td><?php echo $this->Html->image('/img/consultas/'.$consulta['Consulta']['imagem_d'], array('alt' => 'Imagem do olho direito.', 'height' => 200)); ?></td>
+   </tr>
 </table>

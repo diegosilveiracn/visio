@@ -89,7 +89,9 @@ create table consultas(
     fundo_vitreo_e text,
     diagnostico text,
     tratamento text,
-    consulta_id int
+    consulta_id int,
+    imagem_d varchar(255),
+    imagem_e varchar(255)
 );
 
 alter table consultas

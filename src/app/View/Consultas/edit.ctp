@@ -2,7 +2,7 @@
 
 <?php
 
-echo $this->Form->create('Consulta', array('action' => 'edit', 'novalidate' => 'true'));
+echo $this->Form->create('Consulta', array('action' => 'edit', 'novalidate' => 'true', 'type' => 'file'));
 
 echo $this->Form->input('id', array('type' => 'hidden'));
 echo $this->Form->input('oftalmologista_id', array('type' => 'hidden'));
@@ -21,6 +21,8 @@ echo $this->Form->input('tratamento');
 
 <?php
 
+echo $this->Form->input('imagem_d', array('type' => 'hidden'));
+
 echo $this->Form->input('reflexos_direto_d', array('label' => 'Reflexos Direto', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
 echo $this->Form->input('reflexos_consensual_d', array('label' => 'Reflexos Consensual', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
 echo $this->Form->input('reflexos_ameaca_d', array('label' => 'Reflexos de Ameaça', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
@@ -36,6 +38,9 @@ echo $this->Form->input('camara_ant_angu_drenagem_d', array('label' => 'Câmera 
 echo $this->Form->input('pupila_iris_d', array('label' => 'Pupila e Íris'));
 echo $this->Form->input('lente_d', array('label' => 'Lente'));
 echo $this->Form->input('fundo_vitreo_d', array('label' => 'Fundo e Vítreo'));
+echo $this->Form->input('upload_d', array('type'=>'file', 'label' => 'Imagem do olho'));
+
+echo $this->Html->image('/img/consultas/'.$imagem_d, array('alt' => 'Imagem do olho esquerdo.', 'height' => 200));
 
 ?>
 
@@ -47,6 +52,8 @@ echo $this->Form->input('fundo_vitreo_d', array('label' => 'Fundo e Vítreo'));
 <hr/>
 
 <?php
+
+echo $this->Form->input('imagem_e', array('type' => 'hidden'));
 
 echo $this->Form->input('reflexos_direto_e', array('label' => 'Reflexos Direto', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
 echo $this->Form->input('reflexos_consensual_e', array('label' => 'Reflexos Consensual', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
@@ -63,6 +70,9 @@ echo $this->Form->input('camara_ant_angu_drenagem_e', array('label' => 'Câmera 
 echo $this->Form->input('pupila_iris_e', array('label' => 'Pupila e Íris'));
 echo $this->Form->input('lente_e', array('label' => 'Lente'));
 echo $this->Form->input('fundo_vitreo_e', array('label' => 'Fundo e Vítreo'));
+echo $this->Form->input('upload_e', array('type'=>'file', 'label' => 'Imagem do olho'));
+
+echo $this->Html->image('/img/consultas/'.$imagem_e, array('alt' => 'Imagem do olho esquerdo.', 'height' => 200));
 
 ?>
 

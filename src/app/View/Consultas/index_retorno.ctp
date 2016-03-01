@@ -75,7 +75,7 @@
         }
 
         // the 'number' page buttons
-        echo $this->Paginator->numbers(array('modulus' => 2));
+        echo $this->Paginator->numbers(array('modulus' => 10));
 
         // for the 'next' button
         if($this->Paginator->hasNext()){
