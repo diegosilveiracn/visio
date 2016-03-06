@@ -9,10 +9,7 @@ echo $this->Form->input('paciente_id', array('type' => 'hidden'));
 echo $this->Form->input('consulta_id', array('type' => 'hidden'));
 echo $this->Form->input('created', array('label' => 'Data da Consulta','type' => 'date','dateFormat' => 'DMY'));
 echo $this->Form->input('clinica_id', array('label' => 'Clínica', 'options' => $clinicas));
-
 echo $this->Form->input('historico', array('label' => 'Histórico'));
-echo $this->Form->input('diagnostico', array('label' => 'Diagnóstico'));
-echo $this->Form->input('tratamento');
 ?>
 
 <div id="direita">
@@ -80,5 +77,8 @@ echo $this->Html->image('/img/consultas/'.$imagem_e, array('alt' => 'Imagem do o
 <div>
 
 <?php
+  echo $this->Form->input('diagnostico', array('label' => 'Diagnóstico'));
+  echo $this->Form->input('tratamento');
+
   echo $this->Form->end('Alterar');
 ?>
