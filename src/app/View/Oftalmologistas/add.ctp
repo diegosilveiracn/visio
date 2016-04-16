@@ -1,13 +1,13 @@
-<h3>Cadastro de Oftalmologista</h3>
+<h1 class="ls-title-intro ls-ico-plus">Cadastro de Oftalmologista</h1>
 
 <?php
 
-echo $this->Form->create('Oftalmologista', array('action' => 'add', 'novalidate' => 'true'));
+echo $this->Form->create('Oftalmologista', array('action' => 'add', 'class' => 'ls-form row'));
 
-echo $this->Form->input('nome');
-echo $this->Form->input('email', array('label' => 'E-mail'));
-echo $this->Form->input('crmv', array('label' => 'CRMV'));
+echo $this->Form->input('nome', array('div' => 'ls-label col-md-3'));
+echo $this->Form->input('email', array('div' => 'ls-label col-md-3', 'label' => 'E-mail'));
+echo $this->Form->input('crmv', array('div' => 'ls-label col-md-3', 'label' => 'CRMV'));
 
-echo $this->Form->end('Savar');
+echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Salvar', 'class' => 'ls-btn'));
 
 ?>

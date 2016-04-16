@@ -64,6 +64,8 @@ class UsersController extends AppController{
     }
 
 	public function login() {
+    $this->layout="default-login";
+
     if($this->Session->check('Auth.User')){
       $this->redirect($this->Auth->redirect());
     } else {

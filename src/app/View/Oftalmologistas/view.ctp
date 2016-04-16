@@ -1,10 +1,10 @@
-<h3>Visualização de Oftalmologista</h3>
+<h1 class="ls-title-intro ls-ico-info">Visualização de Oftalmologista</h1>
 
-<h1>Nome</h1>
-<p><?php echo $oftalmologista['Oftalmologista']['nome']; ?></p>
+<h2>Nome</h2>
+<p><?php echo $oftalmologista['Oftalmologista']['nome'] != null? $oftalmologista['Oftalmologista']['nome'] : "Não informado"; ?></p>
 
-<h1>E-mail</h1>
-<p><?php echo $oftalmologista['Oftalmologista']['email']; ?></p>
+<h2>E-mail</h2>
+<p><?php echo $oftalmologista['Oftalmologista']['email'] != null? $oftalmologista['Oftalmologista']['email'] : "Não informado" ; ?></p>
 
-<h1>CRMV</h1>
-<p><?php echo $oftalmologista['Oftalmologista']['crmv']; ?> </p>
+<h2>CRMV</h2>
+<p><?php echo $oftalmologista['Oftalmologista']['crmv'] != null ? $oftalmologista['Oftalmologista']['crmv']: "Não informado" ; ?> </p>

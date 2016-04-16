@@ -1,53 +1,50 @@
-<h3>Busca de Proprietários</h3>
+<h1 class="ls-title-intro ls-ico-search">Busca de Proprietários</h1>
 
 <?php
 
-echo $this->Form->create('Proprietario');
+echo $this->Form->create('Proprietario', array('action' => 'search', 'class' => 'ls-form row'));
 
-echo $this->Form->input('parte_nome', array('label' => 'Nome'));
+echo $this->Form->input('parte_nome', array('div' => 'ls-label col-md-3', 'label' => 'Nome'));
 
-echo $this->Form->end('Buscar');
+echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Buscar', 'class' => 'ls-btn'));
 
 ?>
 
-<table>
+<table class="ls-table ls-bg-header ls-no-hover">
+  <thead>
     <tr>
-        <th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
+      <th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
     </tr>
+  </thead>
 
+  <tbody>
     <?php foreach ($proprietarios as $proprietario): ?>
-        <tr>
-			       <td>
-				           <?php echo $this->Html->link($proprietario['Proprietario']['nome'],
-				               array('controller' => 'proprietarios', 'action' => 'index', $proprietario['Proprietario']['id'])); ?>
-			      </td>
-        </tr>
+      <tr>
+        <td>
+          <?php echo $this->Html->link($proprietario['Proprietario']['nome'],
+          array('controller' => 'proprietarios', 'action' => 'index', $proprietario['Proprietario']['id'])); ?>
+        </td>
+      </tr>
     <?php endforeach; ?>
+  </tbody>
 </table>
 
-<?php
-    echo "<div class='paging'>";
+<div class="ls-pagination-filter">
+  <ul class="ls-pagination">
+    <?php
+    echo $this->Paginator->first("Início", array('tag' => 'li', 'class' => false));
 
-        // the 'first' page button
-        echo $this->Paginator->first("Início");
+    if($this->Paginator->hasPrev()){
+      echo $this->Paginator->prev("Anterior", array('tag' => 'li', 'class' => false));
+    }
 
-        // 'prev' page button,
-        // we can check using the paginator hasPrev() method if there's a previous page
-        // save with the 'next' page button
-        if($this->Paginator->hasPrev()){
-            echo $this->Paginator->prev("Anterior");
-        }
+    echo $this->Paginator->numbers(array('separator' => false , 'tag' => 'li', 'currentTag' => 'a', 'currentClass' => 'ls-active'));
 
-        // the 'number' page buttons
-        echo $this->Paginator->numbers(array('modulus' => 2));
+    if($this->Paginator->hasNext()){
+      echo $this->Paginator->next("Próximo", array('tag' => 'li', 'class' => false));
+    }
 
-        // for the 'next' button
-        if($this->Paginator->hasNext()){
-            echo $this->Paginator->next("Próximo");
-        }
-
-        // the 'last' page button
-        echo $this->Paginator->last("Fim");
-
-    echo "</div>";
-?>
+    echo $this->Paginator->last("Fim", array('tag' => 'li', 'class' => false));
+    ?>
+  </ul>
+</div>

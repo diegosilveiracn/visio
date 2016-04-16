@@ -1,19 +1,19 @@
-<h3>Visualização de Paciente</h3>
+<h1 class="ls-title-intro ls-ico-info">Visualização de Paciente</h1>
 
-<h1>Nome</h1>
-<p><?php echo $paciente['Paciente']['nome']; ?></p>
+<h2>Nome</h2>
+<p><?php echo $paciente['Paciente']['nome'] != null? $paciente['Paciente']['nome']: "Não informado"; ?></p>
 
-<h1>Data de Nascimento</h1>
-<p><?php echo date('d/m/Y',strtotime($paciente['Paciente']['data_nascimento'])); ?></p>
+<h2>Data de Nascimento</h2>
+<p><?php echo $paciente['Paciente']['data_nascimento'] != null? date('d/m/Y',strtotime($paciente['Paciente']['data_nascimento'])) : "Não informado"; ?></p>
 
-<h1>Espécie</h1>
-<p><?php echo $paciente['Paciente']['especie']; ?></p>
+<h2>Espécie</h2>
+<p><?php echo $paciente['Paciente']['especie'] != null ? $paciente['Paciente']['especie']: "Não informado"; ?></p>
 
-<h1>Raça</h1>
-<p><?php echo $paciente['Paciente']['raca']; ?></p>
+<h2>Raça</h2>
+<p><?php echo $paciente['Paciente']['raca'] != null ? $paciente['Paciente']['raca']: "Não informado"; ?></p>
 
-<h1>Sexo</h1>
+<h2>Sexo</h2>
 <p><?php echo $paciente['Paciente']['sexo'] == 'M'?'Macho':'Fêmea'; ?></p>
 
-<h1>Proprietário</h1>
-<p><?php echo $paciente['Proprietario']['nome']; ?></p>
+<h2>Proprietário</h2>
+<p><?php echo $paciente['Proprietario']['nome'] != null ? $paciente['Proprietario']['nome'] : "Não informado" ; ?></p>
