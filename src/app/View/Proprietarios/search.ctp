@@ -1,16 +1,14 @@
 <h1 class="ls-title-intro ls-ico-search">Busca de Proprietários</h1>
 
+<?php echo $this->Form->create('Proprietario', array('action' => 'search', 'class' => 'ls-form row')); ?>
+<fieldset>
 <?php
-
-echo $this->Form->create('Proprietario', array('action' => 'search', 'class' => 'ls-form row'));
-
 echo $this->Form->input('parte_nome', array('div' => 'ls-label col-md-3', 'label' => 'Nome'));
-
-echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Buscar', 'class' => 'ls-btn'));
-
 ?>
+</fieldset>
+<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Buscar', 'class' => 'ls-btn-primary')); ?>
 
-<table class="ls-table ls-bg-header ls-no-hover">
+<table class="ls-table">
   <thead>
     <tr>
       <th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>

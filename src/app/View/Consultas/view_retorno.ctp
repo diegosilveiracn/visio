@@ -1,121 +1,137 @@
 <h1 class="ls-title-intro ls-ico-info">Visualização de Retorno</h1>
 
-<h2>Data</h2>
-<p><?php echo date('d/m/Y',strtotime($consulta['Consulta']['created'])); ?></p>
+<table class="ls-table ls-no-hover ls-table-striped">
+<tr>
+  <th>Data</th>
+  <td><?php echo date('d/m/Y',strtotime($consulta['Consulta']['created'])); ?></td>
+</tr>
 
-<h2>Paciente</h2>
-<p><?php echo $consulta['Paciente']['nome']; ?></p>
+<tr>
+  <th>Paciente</th>
+  <td><?php echo $consulta['Paciente']['nome']; ?></td>
+</tr>
 
-<h2>Oftalmologista</h2>
-<p><?php echo $consulta['Oftalmologista']['nome']; ?></p>
+<tr>
+  <th>Oftalmologista</th>
+  <td><?php echo $consulta['Oftalmologista']['nome']; ?></td>
+</tr>
 
-<h2>Clínica</h2>
-<p><?php echo $consulta['Clinica']['nome']; ?></p>
+<tr>
+  <th>Clínica</th>
+  <td><?php echo $consulta['Clinica']['nome']; ?></td>
+</tr>
 
-<h2>Histórico</h2>
-<p><?php echo $consulta['Consulta']['historico']; ?></p>
+<tr>
+  <th>Histórico</th>
+  <td><?php echo $consulta['Consulta']['historico']; ?></td>
+</tr>
 
-<h2>Diagnóstico</h2>
-<p><?php echo $consulta['Consulta']['diagnostico']; ?></p>
+<tr>
+  <th>Diagnóstico</th>
+  <td><?php echo $consulta['Consulta']['diagnostico']; ?></td>
+</tr>
 
-<h2>Tratamento</h2>
-<p><?php echo $consulta['Consulta']['tratamento']; ?></p>
+<tr>
+  <th>Tratamento</th>
+  <td><?php echo $consulta['Consulta']['tratamento']; ?></td>
+</tr>
+</table>
 
-<table>
+<table class="ls-table ls-no-hover ls-table-striped">
   <tr>
-    <th>Descrição</th>
-    <th>Olho Direito</th>
+    <th>Exames</th>
     <th>Olho Esquerdo</th>
+    <th>Olho Direito</th>
   </tr>
 
   <tr>
     <td>Reflexos Direto</td>
-    <td><?php echo $consulta['Consulta']['reflexos_direto_d'] == '+' ?'Positivo': 'Negativo'; ?></td>
     <td><?php echo $consulta['Consulta']['reflexos_direto_e'] == '+' ?'Positivo': 'Negativo'; ?></td>
+    <td><?php echo $consulta['Consulta']['reflexos_direto_d'] == '+' ?'Positivo': 'Negativo'; ?></td>
   </tr>
 
   <tr>
     <td>Reflexos Consensual</td>
-    <td><?php echo $consulta['Consulta']['reflexos_consensual_d'] == '+' ?'Positivo': 'Negativo'; ?></td>
     <td><?php echo $consulta['Consulta']['reflexos_consensual_e'] == '+' ?'Positivo': 'Negativo'; ?></td>
+    <td><?php echo $consulta['Consulta']['reflexos_consensual_d'] == '+' ?'Positivo': 'Negativo'; ?></td>
   </tr>
 
   <tr>
     <td>Reflexos de Ameaça</td>
-    <td><?php echo $consulta['Consulta']['reflexos_ameaca_d'] == '+' ?'Positivo': 'Negativo'; ?></td>
     <td><?php echo $consulta['Consulta']['reflexos_ameaca_e'] == '+' ?'Positivo': 'Negativo'; ?></td>
+    <td><?php echo $consulta['Consulta']['reflexos_ameaca_d'] == '+' ?'Positivo': 'Negativo'; ?></td>
   </tr>
 
   <tr>
     <td>Shirmer (mm/min)</td>
-    <td><?php echo $consulta['Consulta']['schirmer_d']; ?></td>
     <td><?php echo $consulta['Consulta']['schirmer_e']; ?></td>
+    <td><?php echo $consulta['Consulta']['schirmer_d']; ?></td>
   </tr>
 
   <tr>
     <td>Aplan (mmHg)</td>
-    <td><?php echo $consulta['Consulta']['aplan_d']; ?></td>
     <td><?php echo $consulta['Consulta']['aplan_e']; ?></td>
+    <td><?php echo $consulta['Consulta']['aplan_d']; ?></td>
   </tr>
 
   <tr>
     <td>Pálpebras</td>
-    <td><?php echo $consulta['Consulta']['palpebras_d']; ?></td>
     <td><?php echo $consulta['Consulta']['palpebras_e']; ?></td>
+    <td><?php echo $consulta['Consulta']['palpebras_d']; ?></td>
   </tr>
 
   <tr>
     <td>Aparelho Lacrimal</td>
-    <td><?php echo $consulta['Consulta']['aparelho_lacrimal_d']; ?></td>
     <td><?php echo $consulta['Consulta']['aparelho_lacrimal_e']; ?></td>
+    <td><?php echo $consulta['Consulta']['aparelho_lacrimal_d']; ?></td>
   </tr>
 
   <tr>
     <td>Conjuntiva</td>
-    <td><?php echo $consulta['Consulta']['conjuntiva_d']; ?></td>
     <td><?php echo $consulta['Consulta']['conjuntiva_e']; ?></td>
+    <td><?php echo $consulta['Consulta']['conjuntiva_d']; ?></td>
   </tr>
 
   <tr>
     <td>Córnea</td>
-    <td><?php echo $consulta['Consulta']['cornea_d']; ?></td>
     <td><?php echo $consulta['Consulta']['cornea_e']; ?></td>
+    <td><?php echo $consulta['Consulta']['cornea_d']; ?></td>
   </tr>
 
   <tr>
     <td>Fluoresceína</td>
-    <td><?php echo $consulta['Consulta']['fluoresceina_d'] == '+' ?'Positivo': 'Negativo'; ?></td>
     <td><?php echo $consulta['Consulta']['fluoresceina_e'] == '+' ?'Positivo': 'Negativo'; ?></td>
+    <td><?php echo $consulta['Consulta']['fluoresceina_d'] == '+' ?'Positivo': 'Negativo'; ?></td>
   </tr>
 
   <tr>
     <td>Jones</td>
-    <td><?php echo $consulta['Consulta']['jones_d'] == '+' ?'Positivo': 'Negativo'; ?></td>
     <td><?php echo $consulta['Consulta']['jones_e'] == '+' ?'Positivo': 'Negativo'; ?></td>
+    <td><?php echo $consulta['Consulta']['jones_d'] == '+' ?'Positivo': 'Negativo'; ?></td>
   </tr>
 
   <tr>
     <td>Câmera Anterior e Ângulo de drenagem</td>
-    <td><?php echo $consulta['Consulta']['camara_ant_angu_drenagem_d']; ?></td>
     <td><?php echo $consulta['Consulta']['camara_ant_angu_drenagem_e']; ?></td>
+    <td><?php echo $consulta['Consulta']['camara_ant_angu_drenagem_d']; ?></td>
   </tr>
 
   <tr>
     <td>Pupila e Íris</td>
-    <td><?php echo $consulta['Consulta']['pupila_iris_d']; ?></td>
     <td><?php echo $consulta['Consulta']['pupila_iris_e']; ?></td>
+    <td><?php echo $consulta['Consulta']['pupila_iris_d']; ?></td>
   </tr>
 
   <tr>
     <td>Lente</td>
-    <td><?php echo $consulta['Consulta']['lente_d']; ?></td>
     <td><?php echo $consulta['Consulta']['lente_e']; ?></td>
+    <td><?php echo $consulta['Consulta']['lente_d']; ?></td>
   </tr>
 
   <tr>
     <td>Fundo e Vítreo</td>
-    <td><?php echo $consulta['Consulta']['fundo_vitreo_d']; ?></td>
     <td><?php echo $consulta['Consulta']['fundo_vitreo_e']; ?></td>
+    <td><?php echo $consulta['Consulta']['fundo_vitreo_d']; ?></td>
   </tr>
 
   <tr>

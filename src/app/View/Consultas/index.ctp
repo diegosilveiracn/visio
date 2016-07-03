@@ -1,4 +1,4 @@
-<h1 class="ls-title-intro ls-ico-book">Consultas</h1>
+<h1 class="ls-title-intro ls-ico-book">Consultas Médica</h1>
 
 <?php
 $msg = $this->Session->flash();
@@ -10,19 +10,16 @@ if ($msg != null){
   </div>
   <?php }?>
 
-  <?php echo $this->Html->link('Novo', array('controller' => 'consultas', 'action' => 'add', $paciente_id), array('class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Adicionar Consulta', array('controller' => 'consultas', 'action' => 'add', $paciente_id), array('class' => 'ls-btn-primary')); ?>
 
-  <table class="ls-table ls-bg-header ls-no-hover">
+  <table class="ls-table">
     <thead>
       <tr>
-        <th></th>
-        <th class="ls-data-descending"><?php echo $this->Paginator->sort('created', 'Data'); ?></th>
-        <th class="ls-data-descending"><?php echo $this->Paginator->sort('Paciente.nome', 'Paciente'); ?></th>
-        <th class="ls-data-descending"><?php echo $this->Paginator->sort('Proprietario.nome', 'Proprietário'); ?></th>
-        <th class="ls-data-descending"><?php echo $this->Paginator->sort('Oftalmologista.nome', 'Oftalmologista'); ?></th>
-        <th class="ls-data-descending"><?php echo $this->Paginator->sort('Clinica.nome', 'Clínica'); ?></th>
-        <th></th>
-        <th></th>
+        <th><?php echo $this->Paginator->sort('created', 'Data'); ?></th>
+        <th><?php echo $this->Paginator->sort('Paciente.nome', 'Paciente'); ?></th>
+        <th><?php echo $this->Paginator->sort('Proprietario.nome', 'Proprietário'); ?></th>
+        <th><?php echo $this->Paginator->sort('Oftalmologista.nome', 'Oftalmologista'); ?></th>
+        <th><?php echo $this->Paginator->sort('Clinica.nome', 'Clínica'); ?></th>
         <th></th>
       </tr>
     </thead>
@@ -30,48 +27,52 @@ if ($msg != null){
     <tboby>
       <?php foreach ($consultas as $consulta): ?>
         <tr>
-          <td>
-            <?php echo $this->Html->link('Abrir', array ('controller' => 'consultas', 'action' => 'view', $consulta['Consulta']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
-          </td>
 
           <td>
-            <?php echo date('d/m/Y',strtotime($consulta['Consulta']['created']));?>
+            <?php $data = date('d/m/Y',strtotime($consulta['Consulta']['created']));?>
+            <?php echo $this->Html->link($data, array ('controller' => 'consultas', 'action' => 'view', $consulta['Consulta']['id'])); ?>
           </td>
 
           <td>
             <?php echo $this->Html->link($consulta['Paciente']['nome'],
-            array('controller' => 'pacientes', 'action' => 'index', $consulta['Paciente']['proprietario_id'], $consulta['Paciente']['id'])); ?>
+            array('controller' => 'pacientes', 'action' => 'view', $consulta['Paciente']['proprietario_id'], $consulta['Paciente']['id'])); ?>
           </td>
 
           <td>
             <?php echo $this->Html->link($consulta['Paciente']['Proprietario']['nome'],
-            array('controller' => 'proprietarios', 'action' => 'index', $consulta['Paciente']['Proprietario']['id'])); ?>
+            array('controller' => 'proprietarios', 'action' => 'view', $consulta['Paciente']['Proprietario']['id'])); ?>
           </td>
 
           <td>
             <?php echo $this->Html->link($consulta['Oftalmologista']['nome'],
-            array('controller' => 'oftalmologistas', 'action' => 'index', $consulta['Oftalmologista']['id'])); ?>
+            array('controller' => 'oftalmologistas', 'action' => 'view', $consulta['Oftalmologista']['id'])); ?>
           </td>
 
           <td>
             <?php echo $this->Html->link($consulta['Clinica']['nome'],
-            array('controller' => 'clinicas', 'action' => 'index', $consulta['Clinica']['id'])); ?>
+            array('controller' => 'clinicas', 'action' => 'view', $consulta['Clinica']['id'])); ?>
           </td>
 
           <td>
-            <?php echo $this->Html->link('Retorno',
-            array('controller' => 'consultas', 'action' => 'index_retorno', $consulta['Paciente']['id'], $consulta['Consulta']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
-          </td>
+            <div data-ls-module="dropdown" class="ls-dropdown">
+              <a class="ls-btn" href="#">Opções</a>
 
-          <td>
-            <?php echo $this->Html->link('Alterar', array ('action' => 'edit', $consulta['Consulta']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
-          </td>
-
-          <td>
-            <?php echo $this->Html->link('Excluir',
-            array ('action' => 'delete', $consulta['Consulta']['id']),
-            array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-btn-danger ls-btn-xs'));
-            ?>
+              <ul class="ls-dropdown-nav">
+                <li>
+                  <?php echo $this->Html->link('Retorno Médico',
+                  array('controller' => 'consultas', 'action' => 'index_retorno', $consulta['Paciente']['id'], $consulta['Consulta']['id'])); ?>
+                </li>
+                <li><?php echo $this->Html->link('Visualizar', array ('controller' => 'consultas', 'action' => 'view', $consulta['Consulta']['id'])); ?></li>
+                <li>
+                  <?php echo $this->Html->link('Editar', array ('action' => 'edit', $consulta['Consulta']['id'])); ?>
+                </li>
+                <li>
+                  <?php echo $this->Html->link('Excluir',
+                  array ('action' => 'delete', $consulta['Consulta']['id']),
+                  array('confirm' => 'Tem certeza que deseja excluir?',  'class'=> 'ls-color-danger ls-divider'));
+                  ?>
+                </li>
+            </div>
           </td>
         </tr>
       <?php endforeach; ?>

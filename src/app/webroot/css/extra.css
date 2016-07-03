@@ -1,0 +1,9 @@
+@media(max-width: 600px){
+  .ls-table td, .ls-table th{
+    display: block;
+  }
+}
+
+.ls-table-striped tbody tr:nth-child(2n+1) th, .ls-table-striped.ls-bg-header tr:nth-child(2n) th {
+    background: #f7f7f7;
+}

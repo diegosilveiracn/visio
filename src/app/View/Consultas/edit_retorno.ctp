@@ -1,35 +1,61 @@
 <h1 class="ls-title-intro ls-ico-pencil">Alteração de Retorno</h1>
 
+<?php echo $this->Form->create('Consulta', array('action' => 'edit_retorno', 'class' => 'ls-form ls-form-horizontal row', 'type' => 'file'));?>
+
+<fieldset>
 <?php
-
-echo $this->Form->create('Consulta', array('action' => 'edit_retorno', 'class' => 'ls-form row', 'type' => 'file'));
-
 echo $this->Form->input('id', array('type' => 'hidden'));
 echo $this->Form->input('paciente_id', array('type' => 'hidden'));
 echo $this->Form->input('consulta_id', array('type' => 'hidden'));
-echo $this->Form->input('created', array('div' => 'ls-label col-md-3', 'label' => 'Data da Consulta','type' => 'date','dateFormat' => 'DMY'));
-echo $this->Form->input('clinica_id', array('div' => 'ls-label col-md-3', 'label' => 'Clínica', 'options' => $clinicas));
-echo $this->Form->input('historico', array('div' => 'ls-label col-md-3', 'label' => 'Histórico'));
-?>
+echo $this->Form->input('created', array('div' => 'ls-label col-md-3', 'label' => 'Data da Consulta','type' => 'date','dateFormat' => 'DMY')); ?>
 
-<div data-ls-module="collapse" data-target="#acordeon0" class="ls-collapse ">
-  <a href="#" class="ls-collapse-header">
-    <h2 class="ls-collapse-title">Olho Direito</h2>
-  </a>
-  <div class="ls-collapse-body" id="acordeon0">
+<label class="ls-label col-md-3">
+  <b class="ls-label-text">Clínica</b>
+  <?php echo $this->Form->input('clinica_id', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => $clinicas)); ?>
+</label>
+
+  <?php echo $this->Form->input('historico', array('div' => 'ls-label col-md-3', 'label' => 'Histórico'));?>
+</fieldset>
+
+<fieldset>
+  <h4 class="ls-title-4">Olho Direito</h4>
+  <hr/>
+    <?php echo $this->Form->input('imagem_d', array('type' => 'hidden')); ?>
+
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text">Reflexo Direto</b>
+      <?php echo $this->Form->input('reflexos_direto_d', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+    </label>
+
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text">Reflexo Consensual</b>
+      <?php echo $this->Form->input('reflexos_consensual_d', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+    </label>
+
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text">Reflexo de Ameaça</b>
+      <?php echo $this->Form->input('reflexos_ameaca_d', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+    </label>
+
     <?php
-    echo $this->Form->input('imagem_d', array('type' => 'hidden'));
-    echo $this->Form->input('reflexos_direto_d', array('div' => 'ls-label col-md-3', 'label' => 'Reflexos Direto', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
-    echo $this->Form->input('reflexos_consensual_d', array('div' => 'ls-label col-md-3', 'label' => 'Reflexos Consensual', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
-    echo $this->Form->input('reflexos_ameaca_d', array('div' => 'ls-label col-md-3', 'label' => 'Reflexos de Ameaça', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
     echo $this->Form->input('schirmer_d', array('div' => 'ls-label col-md-3', 'label' => 'Shirmer (mm/min)'));
     echo $this->Form->input('aplan_d', array('div' => 'ls-label col-md-3', 'label' => 'Aplan (mmHg)'));
     echo $this->Form->input('palpebras_d', array('div' => 'ls-label col-md-3', 'label' => 'Pálpebras'));
     echo $this->Form->input('aparelho_lacrimal_d', array('div' => 'ls-label col-md-3', 'label' => 'Aparelho Lacrimal'));
     echo $this->Form->input('conjuntiva_d', array('div' => 'ls-label col-md-3', 'label' => 'Conjuntiva'));
-    echo $this->Form->input('cornea_d', array('div' => 'ls-label col-md-3', 'label' => 'Córnea'));
-    echo $this->Form->input('fluoresceina_d', array('div' => 'ls-label col-md-3', 'label' => 'Fluoresceína', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
-    echo $this->Form->input('jones_d', array('div' => 'ls-label col-md-3', 'label' => 'Jones', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
+    echo $this->Form->input('cornea_d', array('div' => 'ls-label col-md-3', 'label' => 'Córnea')); ?>
+
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text">Fluoresceína</b>
+      <?php echo $this->Form->input('fluoresceina_d', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+    </label>
+
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text">Jones</b>
+      <?php echo $this->Form->input('jones_d', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+    </label>
+
+    <?php
     echo $this->Form->input('camara_ant_angu_drenagem_d', array('div' => 'ls-label col-md-3', 'label' => 'Câmera Anterior e Ângulo de drenagem'));
     echo $this->Form->input('pupila_iris_d', array('div' => 'ls-label col-md-3', 'label' => 'Pupila e Íris'));
     echo $this->Form->input('lente_d', array('div' => 'ls-label col-md-3', 'label' => 'Lente'));
@@ -37,28 +63,47 @@ echo $this->Form->input('historico', array('div' => 'ls-label col-md-3', 'label'
     echo $this->Form->input('upload_d', array('type'=>'file', 'div' => 'ls-label col-md-3', 'label' => 'Imagem do olho'));
     echo $this->Html->image('/img/consultas/'.$imagem_d, array('alt' => 'Imagem do olho esquerdo.', 'height' => 200));
     ?>
-  </div>
-</div>
+</fieldset>
 
-<div data-ls-module="collapse" data-target="#acordeon1" class="ls-collapse ">
-  <a href="#" class="ls-collapse-header">
-    <h2 class="ls-collapse-title">Olho Esquerdo</h2>
-  </a>
+<fieldset>
+  <h4 class="ls-title-4">Olho Esquerdo</h4>
+  <hr/>
+    <?php echo $this->Form->input('imagem_e', array('type' => 'hidden')); ?>
 
-  <div class="ls-collapse-body" id="acordeon1">
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text">Reflexo Direto</b>
+      <?php echo $this->Form->input('reflexos_direto_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+    </label>
+
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text">Reflexo Consensual</b>
+      <?php echo $this->Form->input('reflexos_consensual_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+    </label>
+
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text">Reflexo de Ameaça</b>
+      <?php echo $this->Form->input('reflexos_ameaca_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+    </label>
+
     <?php
-    echo $this->Form->input('imagem_e', array('type' => 'hidden'));
-    echo $this->Form->input('reflexos_direto_e', array('div' => 'ls-label col-md-3', 'label' => 'Reflexos Direto', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
-    echo $this->Form->input('reflexos_consensual_e', array('div' => 'ls-label col-md-3', 'label' => 'Reflexos Consensual', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
-    echo $this->Form->input('reflexos_ameaca_e', array('div' => 'ls-label col-md-3', 'label' => 'Reflexos de Ameaça', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
     echo $this->Form->input('schirmer_e', array('div' => 'ls-label col-md-3', 'label' => 'Shirmer (mm/min)'));
     echo $this->Form->input('aplan_e', array('div' => 'ls-label col-md-3', 'label' => 'Aplan (mmHg)'));
     echo $this->Form->input('palpebras_e', array('div' => 'ls-label col-md-3', 'label' => 'Pálpebras'));
     echo $this->Form->input('aparelho_lacrimal_e', array('div' => 'ls-label col-md-3', 'label' => 'Aparelho Lacrimal'));
     echo $this->Form->input('conjuntiva_e', array('div' => 'ls-label col-md-3', 'label' => 'Conjuntiva'));
-    echo $this->Form->input('cornea_e', array('div' => 'ls-label col-md-3', 'label' => 'Córnea'));
-    echo $this->Form->input('fluoresceina_e', array('div' => 'ls-label col-md-3', 'label' => 'Fluoresceína', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
-    echo $this->Form->input('jones_e', array('div' => 'ls-label col-md-3', 'label' => 'Jones', 'options' => array('+' => 'Positivo','-' => 'Negativo')));
+    echo $this->Form->input('cornea_e', array('div' => 'ls-label col-md-3', 'label' => 'Córnea')); ?>
+
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text">Fluoresceína</b>
+      <?php echo $this->Form->input('fluoresceina_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+    </label>
+
+    <label class="ls-label col-md-3">
+      <b class="ls-label-text">Jones</b>
+      <?php echo $this->Form->input('jones_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+    </label>
+
+    <?php
     echo $this->Form->input('camara_ant_angu_drenagem_e', array('div' => 'ls-label col-md-3', 'label' => 'Câmera Anterior e Ângulo de drenagem'));
     echo $this->Form->input('pupila_iris_e', array('div' => 'ls-label col-md-3', 'label' => 'Pupila e Íris'));
     echo $this->Form->input('lente_e', array('div' => 'ls-label col-md-3', 'label' => 'Lente'));
@@ -66,12 +111,14 @@ echo $this->Form->input('historico', array('div' => 'ls-label col-md-3', 'label'
     echo $this->Form->input('upload_e', array('div' => 'ls-label col-md-3', 'type'=>'file', 'label' => 'Imagem do olho'));
     echo $this->Html->image('/img/consultas/'.$imagem_e, array('alt' => 'Imagem do olho esquerdo.', 'height' => 200));
     ?>
-  </div>
-</div>
+</fieldset>
 
+<fieldset>
+  <hr/>
 <?php
 echo $this->Form->input('diagnostico', array('div' => 'ls-label col-md-3', 'label' => 'Diagnóstico'));
 echo $this->Form->input('tratamento', array('div' => 'ls-label col-md-3'));
-
-echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Alterar', 'class' => 'ls-btn'));
 ?>
+</fieldset>
+
+<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Atualizar', 'class' => 'ls-btn-primary')); ?>

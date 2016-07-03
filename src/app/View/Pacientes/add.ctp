@@ -1,25 +1,27 @@
-<h1 class="ls-title-intro ls-ico-plus">Cadastro de Paciente</h1>
+  <h1 class="ls-title-intro ls-ico-plus">Cadastro de Paciente</h1>
 
-<?php
+  <?php echo $this->Form->create('Paciente', array('action' => 'add', 'class' => 'ls-form ls-form-horizontal row')); ?>
 
-echo $this->Form->create('Paciente', array('action' => 'add', 'class' => 'ls-form row'));
+  <fieldset>
+  <?php
+  echo $this->Form->input('id', array('type' => 'hidden'));
 
-echo $this->Form->input('id', array('type' => 'hidden'));
+  echo $this->Form->input('nome', array('div' => 'ls-label col-md-3'));
+  echo $this->Form->input('data_nascimento', array('div' => 'ls-label col-md-3', 'label' => 'Data de Nascimento', 'dateFormat' => 'DMY'));
+  echo $this->Form->input('especie', array('div' => 'ls-label col-md-3', 'label' => 'Espécie'));
+  echo $this->Form->input('raca', array('div' => 'ls-label col-md-3', 'label' => 'Raça'));
+  ?>
 
-echo $this->Form->input('nome', array('div' => 'ls-label col-md-3'));
-echo $this->Form->input('data_nascimento', array('div' => 'ls-label col-md-3', 'label' => 'Data de Nascimento', 'dateFormat' => 'DMY'));
-echo $this->Form->input('especie', array('div' => 'ls-label col-md-3', 'label' => 'Espécie'));
-echo $this->Form->input('raca', array('div' => 'ls-label col-md-3', 'label' => 'Raça'));
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Sexo</b>
+    <?php echo $this->Form->input('sexo', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('M' => 'Macho', 'F' => 'Fêmea'),'empty' => '')); ?>
+  </label>
 
-echo $this->Form->input('sexo', array('options' => array('M' => 'Macho',
-'F' => 'Fêmea'
-),
-'empty' => '',
-'div' => 'ls-label col-md-3'       )
-);
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Proprietário</b>
+    <?php echo $this->Form->input('proprietario_id', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => $proprietarios, 'empty' => '')); ?>
+  </label>
 
-echo $this->Form->input('proprietario_id', array('div' => 'ls-label col-md-3', 'label' => 'Proprietário', 'options' => $proprietarios, 'empty' => ''));
+  </fieldset>
 
-echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Salvar', 'class' => 'ls-btn'));
-
-?>
+  <?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Salvar', 'class' => 'ls-btn-primary')); ?>

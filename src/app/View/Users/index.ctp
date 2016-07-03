@@ -10,16 +10,14 @@ if ($msg != null){
   </div>
   <?php }?>
 
-  <?php echo $this->Html->link('Novo', array ('controller' => 'users', 'action' => 'add'), array('class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Adicionar Usuário', array ('controller' => 'users', 'action' => 'add'), array('class' => 'ls-btn-primary')); ?>
 
-  <table class="ls-table ls-bg-header ls-no-hover">
+  <table class="ls-table">
     <thead>
       <tr>
-        <th></th>
-        <th class="ls-data-descending"><?php echo $this->Paginator->sort('Oftalmologista.nome', 'Nome'); ?></th>
         <th>Login</th>
+        <th><?php echo $this->Paginator->sort('Oftalmologista.nome', 'Nome'); ?></th>
         <th>Regra de Acesso</th>
-        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -28,15 +26,11 @@ if ($msg != null){
       <?php foreach ($users as $user): ?>
         <tr>
           <td>
-            <?php echo $this->Html->link('Abrir', array ('controller' => 'users', 'action' => 'view', $user['User']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
+            <?php echo $this->Html->link($user['User']['username'], array ('controller' => 'users', 'action' => 'view', $user['User']['id'])); ?>
           </td>
 
           <td>
-            <?php echo $this->Html->link($user['Oftalmologista']['nome'], array('controller' => 'oftalmologistas', 'action' => 'index', $user['Oftalmologista']['id'])); ?>
-          </td>
-
-          <td>
-            <?php echo $user['User']['username'];?>
+            <?php echo $this->Html->link($user['Oftalmologista']['nome'], array('controller' => 'oftalmologistas', 'action' => 'view', $user['Oftalmologista']['id'])); ?>
           </td>
 
           <td>
@@ -44,14 +38,19 @@ if ($msg != null){
           </td>
 
           <td>
-            <?php echo $this->Html->link('Alterar', array ('action' => 'edit', $user['User']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
-          </td>
-
-          <td>
-            <?php echo $this->Html->link('Excluir',
-            array ('action' => 'delete', $user['User']['id']),
-            array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-btn-danger ls-btn-xs'));
-            ?>
+            <div data-ls-module="dropdown" class="ls-dropdown">
+              <a class="ls-btn" href="#">Opções</a>
+              <ul class="ls-dropdown-nav">
+                <li><?php echo $this->Html->link('Visualizar', array ('controller' => 'users', 'action' => 'view', $user['User']['id'])); ?></li>
+                <li><?php echo $this->Html->link('Editar', array ('action' => 'edit', $user['User']['id'])); ?></li>
+                <li>
+                  <?php echo $this->Html->link('Excluir',
+                  array ('action' => 'delete', $user['User']['id']),
+                  array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-color-danger ls-divider'));
+                  ?>
+                </li>
+              </ul>
+            </div>
           </td>
         </tr>
       <?php endforeach; ?>

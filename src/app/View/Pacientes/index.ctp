@@ -10,18 +10,15 @@ if ($msg != null){
   </div>
   <?php }?>
 
-  <?php echo $this->Html->link('Novo',	array ('controller' => 'pacientes', 'action' => 'add',$proprietario_id), array('class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Adicionar Paciente',	array ('controller' => 'pacientes', 'action' => 'add',$proprietario_id), array('class' => 'ls-btn-primary')); ?>
   <?php echo $this->Html->link('Buscar',	array ('controller' => 'pacientes', 'action' => 'search'), array('class' => 'ls-btn')); ?>
 
-  <table  class="ls-table ls-bg-header ls-no-hover">
+  <table  class="ls-table">
     <thead>
       <tr>
-        <th></th>
         <th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
         <th>Espécie</th>
         <th><?php echo $this->Paginator->sort('Proprietario.nome', 'Proprietário'); ?></th>
-        <th></th>
-        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -29,32 +26,30 @@ if ($msg != null){
     <tbody>
       <?php foreach ($pacientes as $paciente): ?>
         <tr>
-          <td>
-            <?php echo $this->Html->link('Abrir', array ('controller' => 'pacientes', 'action' => 'view', $paciente['Paciente']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
-          </td>
-
-          <td><?php echo $paciente['Paciente']['nome']?></td>
+          <td><?php echo $this->Html->link($paciente['Paciente']['nome'], array ('controller' => 'pacientes', 'action' => 'view', $paciente['Paciente']['id'])); ?></td>
 
           <td><?php echo $paciente['Paciente']['especie']?></td>
 
           <td>
             <?php echo $this->Html->link($paciente['Proprietario']['nome'],
-            array('controller' => 'proprietarios', 'action' => 'index', $paciente['Proprietario']['id'])); ?>
+            array('controller' => 'proprietarios', 'action' => 'view', $paciente['Proprietario']['id'])); ?>
           </td>
 
           <td>
-            <?php echo $this->Html->link('Consulta', array ('controller' => 'consultas', 'action' => 'index', $paciente['Paciente']['id'])); ?>
-          </td>
-
-          <td>
-            <?php echo $this->Html->link('Alterar', array ('action' => 'edit', $paciente['Paciente']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
-          </td>
-
-          <td>
-            <?php echo $this->Html->link('Excluir',
-            array('action' => 'delete', $paciente['Paciente']['id']),
-            array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-btn-danger ls-btn-xs'));
-            ?>
+            <div data-ls-module="dropdown" class="ls-dropdown">
+              <a class="ls-btn" href="#">Opções</a>
+              <ul class="ls-dropdown-nav">
+                <li><?php echo $this->Html->link('Consulta', array ('controller' => 'consultas', 'action' => 'index', $paciente['Paciente']['id'])); ?></li>
+                <li><?php echo $this->Html->link('Visualizar', array ('controller' => 'pacientes', 'action' => 'view', $paciente['Paciente']['id'])); ?></li>
+                <li><?php echo $this->Html->link('Editar', array ('action' => 'edit', $paciente['Paciente']['id'])); ?></li>
+                <li>
+                  <?php echo $this->Html->link('Excluir',
+                  array('action' => 'delete', $paciente['Paciente']['id']),
+                  array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-color-danger ls-divider'));
+                  ?>
+                </li>
+              </ul>
+            </div>
           </td>
         </tr>
       <?php endforeach; ?>

@@ -8,9 +8,8 @@
 	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta name="description" content="Insira aqui a descrição da página.">
-	<link href="http://assets.locaweb.com.br/locastyle/3.8.3/stylesheets/locastyle.css" rel="stylesheet" type="text/css">
-	<link rel="icon" sizes="192x192" href="/locawebstyle/assets/images/ico-boilerplate.png">
-	<link rel="apple-touch-icon" href="/locawebstyle/assets/images/ico-boilerplate.png">
+	<?php echo $this->Html->css('locastyle'); ?>
+	<?php echo $this->Html->css('extra'); ?>
 </head>
 
 <body>
@@ -34,10 +33,8 @@
 
 		<span class="ls-show-sidebar ls-ico-menu"></span>
 
-		<a href="<?php echo $this->Html->url(array("controller" => "pages", "action" => "display", "bar"));?>"  class="ls-go-next"><span class="ls-text">Tela inicial</span></a>
-
 		<h1 class="ls-brand-name">
-			<a href="#" class="ls-ico-eye">
+			<a href="<?php echo $this->Html->url(array("controller" => "pages", "action" => "display", "bar"));?>" class="ls-ico-eye">
 				<small>Oftalmologia Veterinária</small>
 				Visio
 			</a>
@@ -82,7 +79,7 @@
 			</div>
 		</main>
 
-		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script src="http://assets.locaweb.com.br/locastyle/3.8.3/javascripts/locastyle.js" type="text/javascript"></script>
+		<?php echo $this->Html->script('jquery-2.1.4.min');?>
+		<?php echo $this->Html->script('locastyle');?>
 	</body>
 	</html>

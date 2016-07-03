@@ -1,29 +1,45 @@
 <h1 class="ls-title-intro ls-ico-info">Visualização de Consulta</h1>
 
-<h2>Data</h2>
-<p><?php echo date('d/m/Y',strtotime($consulta['Consulta']['created'])); ?></p>
+<table class="ls-table ls-no-hover ls-table-striped">
+<tr>
+  <th>Data</th>
+  <td><?php echo date('d/m/Y',strtotime($consulta['Consulta']['created'])); ?></td>
+</tr>
 
-<h2>Paciente</h2>
-<p><?php echo $consulta['Paciente']['nome']; ?></p>
+<tr>
+  <th>Paciente</th>
+  <td><?php echo $consulta['Paciente']['nome']; ?></td>
+</tr>
 
-<h2>Oftalmologista</h2>
-<p><?php echo $consulta['Oftalmologista']['nome']; ?></p>
+<tr>
+  <th>Oftalmologista</th>
+  <td><?php echo $consulta['Oftalmologista']['nome']; ?></td>
+</tr>
 
-<h2>Clínica</h2>
-<p><?php echo $consulta['Clinica']['nome']; ?></p>
+<tr>
+  <th>Clínica</th>
+  <td><?php echo $consulta['Clinica']['nome']; ?></td>
+</tr>
 
-<h2>Histórico</h2>
-<p><?php echo $consulta['Consulta']['historico']; ?></p>
+<tr>
+  <th>Histórico</th>
+  <td><?php echo $consulta['Consulta']['historico']; ?></td>
+</tr>
 
-<h2>Diagnóstico</h2>
-<p><?php echo $consulta['Consulta']['diagnostico']; ?></p>
+<tr>
+  <th>Diagnóstico</th>
+  <td><?php echo $consulta['Consulta']['diagnostico']; ?></td>
+</tr>
 
-<h2>Tratamento</h2>
-<p><?php echo $consulta['Consulta']['tratamento']; ?></p>
+<tr>
+  <th>Tratamento</th>
+  <td><?php echo $consulta['Consulta']['tratamento']; ?></td>
+</tr>
+</table>
 
-<table>
+<table class="ls-table ls-no-hover ls-table-striped">
   <tr>
-    <th>Descrição</th>
+    <th>Exames</th>
     <th>Olho Esquerdo</th>
     <th>Olho Direito</th>
   </tr>

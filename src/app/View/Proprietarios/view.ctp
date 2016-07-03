@@ -1,37 +1,60 @@
 <h1 class="ls-title-intro ls-ico-info">Visualização de Proprietário</h1>
 
-<h2>Nome</h2>
-<p><?php echo $proprietario['Proprietario']['nome'] != null ? $proprietario['Proprietario']['nome'] : "Não informado"; ?></p>
+<table class="ls-table ls-no-hover ls-table-striped">
 
-<h2>Endereço</h2>
-<p><?php echo $proprietario['Proprietario']['endereco'] != null ? $proprietario['Proprietario']['endereco']: "Não informado"; ?></p>
+	<tr>
+		<th>Nome</th>
+		<td><?php echo $proprietario['Proprietario']['nome'] != null ? $proprietario['Proprietario']['nome'] : "Não informado"; ?></td>
+	</tr>
 
-<h2>Número</h2>
-<p><?php echo $proprietario['Proprietario']['numero'] != null ? $proprietario['Proprietario']['numero'] : "Não informado"; ?></p>
+	<tr>
+		<th>Endereço</th>
+		<td><?php echo $proprietario['Proprietario']['endereco'] != null ? $proprietario['Proprietario']['endereco']: "Não informado"; ?></td>
+	</tr>
 
-<h2>Complemento</h2>
-<p><?php echo $proprietario['Proprietario']['complemento'] != null ? $proprietario['Proprietario']['complemento'] : "Não informado"; ?></p>
+	<tr>
+		<th>Número</th>
+		<td><?php echo $proprietario['Proprietario']['numero'] != null ? $proprietario['Proprietario']['numero'] : "Não informado"; ?></td>
+	</tr>
 
-<h2>Bairro</h2>
-<p><?php echo $proprietario['Proprietario']['bairro'] != null ? $proprietario['Proprietario']['bairro'] : "Não informado"; ?></p>
+	<tr>
+		<th>Complemento</th>
+		<td><?php echo $proprietario['Proprietario']['complemento'] != null ? $proprietario['Proprietario']['complemento'] : "Não informado"; ?></td>
+	</tr>
 
-<h2>Cidade</h2>
-<p><?php echo $proprietario['Proprietario']['cidade'] != null ? $proprietario['Proprietario']['cidade']: "Não informado" ; ?></p>
+	<tr>
+		<th>Bairro</th>
+		<td><?php echo $proprietario['Proprietario']['bairro'] != null ? $proprietario['Proprietario']['bairro'] : "Não informado"; ?></td>
+	</tr>
 
-<h2>UF</h2>
-<p><?php echo $proprietario['Proprietario']['uf'] != null ? $proprietario['Proprietario']['uf'] : "Não informado" ; ?> </p>
+	<tr>
+		<th>Cidade</th>
+		<td><?php echo $proprietario['Proprietario']['cidade'] != null ? $proprietario['Proprietario']['cidade']: "Não informado" ; ?></td>
+	</tr>
 
-<h2>CEP</h2>
-<p><?php echo $proprietario['Proprietario']['cep'] != null ? $proprietario['Proprietario']['cep'] : "Não informado"; ?></p>
+	<tr>
+		<th>UF</th>
+		<td><?php echo $proprietario['Proprietario']['uf'] != null ? $proprietario['Proprietario']['uf'] : "Não informado" ; ?> </td>
+	</tr>
 
-<h2>E-mail</h2>
-<p><?php echo $proprietario['Proprietario']['email'] != null ? $proprietario['Proprietario']['email'] : "Não informado"; ?></p>
+	<tr>
+		<th>CEP</th>
+		<td><?php echo $proprietario['Proprietario']['cep'] != null ? $proprietario['Proprietario']['cep'] : "Não informado"; ?></td>
+	</tr>
 
-<h2>Telefone</h2>
-<p><?php echo $proprietario['Proprietario']['telefone'] != null ? $proprietario['Proprietario']['telefone'] : "Não informado"; ?></p>
+	<tr>
+		<th>E-mail</th>
+		<td><?php echo $proprietario['Proprietario']['email'] != null ? $proprietario['Proprietario']['email'] : "Não informado"; ?></td>
+	</tr>
 
-<h2>Pacientes</h2>
-<p>
+	<tr>
+		<th>Telefone</th>
+		<td><?php echo $proprietario['Proprietario']['telefone'] != null ? $proprietario['Proprietario']['telefone'] : "Não informado"; ?></td>
+	</tr>
+
+	<tr>
+		<th>Pacientes</th>
+		<td>
 	<?php
 	$i = 0;
 	foreach ($proprietario['Paciente'] as $paciente):
@@ -47,4 +70,7 @@
 		echo "Não possui pacientes";
 	}
 	?>
-</p>
+		</td>
+	</tr>
+
+</table>

@@ -10,18 +10,15 @@ if ($msg != null){
 	</div>
 	<?php }?>
 
-	<?php echo $this->Html->link('Novo', array ('controller' => 'proprietarios', 'action' => 'add'), array('class' => 'ls-btn')); ?>
+	<?php echo $this->Html->link('Adicionar Proprietário', array ('controller' => 'proprietarios', 'action' => 'add'), array('class' => 'ls-btn-primary')); ?>
 	<?php echo $this->Html->link('Buscar',	array ('controller' => 'proprietarios', 'action' => 'search'), array('class' => 'ls-btn')); ?>
 
-	<table class="ls-table ls-bg-header ls-no-hover">
+	<table class="ls-table">
 		<thead>
 			<tr>
-				<th></th>
-				<th class="ls-data-descending"><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
+				<th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
 				<th>E-mail</th>
 				<th>Telefone</th>
-				<th></th>
-				<th></th>
 				<th></th>
 			</tr>
 		</thead>
@@ -29,29 +26,27 @@ if ($msg != null){
 		<tbody>
 			<?php foreach ($proprietarios as $proprietario): ?>
 				<tr>
-					<td>
-						<?php echo $this->Html->link('Abrir', array ('controller' => 'proprietarios', 'action' => 'view', $proprietario['Proprietario']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
-					</td>
-
-					<td><?php echo $proprietario['Proprietario']['nome']?></td>
+					<td><?php echo $this->Html->link($proprietario['Proprietario']['nome'], array ('controller' => 'proprietarios', 'action' => 'view', $proprietario['Proprietario']['id']));?></td>
 
 					<td><?php echo $proprietario['Proprietario']['email']?></td>
 
 					<td><?php echo $proprietario['Proprietario']['telefone']?></td>
 
 					<td>
-						<?php echo $this->Html->link('Paciente', array('controller' => 'pacientes', 'action' => 'index', $proprietario['Proprietario']['id'])); ?>
-					</td>
-
-					<td>
-						<?php echo $this->Html->link('Alterar', array ('action' => 'edit', $proprietario['Proprietario']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
-					</td>
-
-					<td>
-						<?php echo $this->Html->link('Excluir',
-						array ('action' => 'delete', $proprietario['Proprietario']['id']),
-						array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-btn-danger ls-btn-xs'));
-						?>
+						<div data-ls-module="dropdown" class="ls-dropdown">
+              <a class="ls-btn" href="#">Opções</a>
+              <ul class="ls-dropdown-nav">
+								<li><?php echo $this->Html->link('Paciente', array('controller' => 'pacientes', 'action' => 'index', $proprietario['Proprietario']['id'])); ?></li>
+								<li><?php echo $this->Html->link('Visualizar', array ('controller' => 'proprietarios', 'action' => 'view', $proprietario['Proprietario']['id']));?></li>
+								<li><?php echo $this->Html->link('Editar', array ('action' => 'edit', $proprietario['Proprietario']['id'])); ?></li>
+								<li>
+									<?php echo $this->Html->link('Excluir',
+									array ('action' => 'delete', $proprietario['Proprietario']['id']),
+									array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-color-danger ls-divider'));
+									?>
+								</li>
+						</ul>
+					</div>
 					</td>
 				</tr>
 			<?php endforeach; ?>

@@ -10,15 +10,13 @@ if ($msg != null){
   </div>
   <?php }?>
 
-  <p><?php echo $this->Html->link('Novo', array ('controller' => 'oftalmologistas', 'action' => 'add'), array('class' => 'ls-btn')); ?></p>
+  <p><?php echo $this->Html->link('Adicionar Oftalmologista', array ('controller' => 'oftalmologistas', 'action' => 'add'), array('class' => 'ls-btn-primary')); ?></p>
 
-  <table class="ls-table ls-bg-header ls-no-hover">
+  <table class="ls-table">
     <thead>
       <tr>
-        <th></th>
-        <th  class="ls-data-descending"><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
+        <th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
         <th>E-mail</th>
-        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -27,24 +25,25 @@ if ($msg != null){
       <?php foreach ($oftalmologistas as $oftalmologista): ?>
         <tr>
           <td>
-            <?php echo $this->Html->link('Abrir', array ('controller' => 'oftalmologistas', 'action' => 'view', $oftalmologista['Oftalmologista']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
-          </td>
-
-          <td>
-            <?php echo $oftalmologista['Oftalmologista']['nome']?>
+            <?php echo $this->Html->link($oftalmologista['Oftalmologista']['nome'], array ('controller' => 'oftalmologistas', 'action' => 'view', $oftalmologista['Oftalmologista']['id'])); ?>
           </td>
 
           <td><?php echo $oftalmologista['Oftalmologista']['email']?></td>
 
           <td>
-            <?php echo $this->Html->link('Alterar', array ('action' => 'edit', $oftalmologista['Oftalmologista']['id']), array('class' => 'ls-btn ls-btn-xs')); ?>
-          </td>
-
-          <td>
-            <?php echo $this->Html->link('Excluir',
-            array ('action' => 'delete', $oftalmologista['Oftalmologista']['id']),
-            array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-btn-danger ls-btn-xs'));
-            ?>
+            <div data-ls-module="dropdown" class="ls-dropdown">
+              <a class="ls-btn" href="#">Opções</a>
+              <ul class="ls-dropdown-nav">
+                <li><?php echo $this->Html->link('Visualizar', array ('controller' => 'oftalmologistas', 'action' => 'view', $oftalmologista['Oftalmologista']['id'])); ?></li>
+                <li><?php echo $this->Html->link('Editar', array ('action' => 'edit', $oftalmologista['Oftalmologista']['id'])); ?></li>
+                <li>
+                  <?php echo $this->Html->link('Excluir',
+                  array ('action' => 'delete', $oftalmologista['Oftalmologista']['id']),
+                  array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-color-danger ls-divider'));
+                  ?>
+                </li>
+              </ul>
+            </div>
           </td>
         </tr>
       <?php endforeach; ?>

@@ -1,9 +1,9 @@
 <h1 class="ls-title-intro ls-ico-pencil">Alteração de Clínica</h1>
 
+<?php echo $this->Form->create('Clinica', array('action' => 'edit', 'class' => 'ls-form ls-form-horizontal row')); ?>
+
+<fieldset>
 <?php
-
-echo $this->Form->create('Clinica', array('action' => 'edit', 'class' => 'ls-form row'));
-
 echo $this->Form->input('id', array('type' => 'hidden'));
 echo $this->Form->input('nome', array('div' => 'ls-label col-md-3'));
 echo $this->Form->input('endereco', array('div' => 'ls-label col-md-3', 'label' => 'Endereço'));
@@ -11,7 +11,12 @@ echo $this->Form->input('numero', array('div' => 'ls-label col-md-3', 'label' =>
 echo $this->Form->input('complemento', array('div' => 'ls-label col-md-3'));
 echo $this->Form->input('bairro', array('div' => 'ls-label col-md-3'));
 echo $this->Form->input('cidade', array('div' => 'ls-label col-md-3'));
-echo $this->Form->input('uf', array('options' => array('AC' => 'Acre',
+?>
+
+<label class="ls-label col-md-3">
+  <b class="ls-label-text">UF</b>
+<?php
+echo $this->Form->input('uf', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('AC' => 'Acre',
 'AL' => 'Alagoas',
 'AP' => 'Amapá',
 'AM' => 'Amazonas',
@@ -38,14 +43,16 @@ echo $this->Form->input('uf', array('options' => array('AC' => 'Acre',
 'SP' => 'São Paulo',
 'SE' => 'Sergipe',
 'TO' => 'Tocantins'),
-'empty' => '',
-'div' => 'ls-label col-md-3',
-'label' => 'UF')
-);
+'empty' => ''));
+?>
+</label>
+
+<?php
 echo $this->Form->input('cep', array('div' => 'ls-label col-md-3', 'label' => 'CEP'));
 echo $this->Form->input('email', array('div' => 'ls-label col-md-3', 'label' => 'E-mail'));
 echo $this->Form->input('telefone', array('div' => 'ls-label col-md-3'));
-
-echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Alterar', 'class' => 'ls-btn'));
-
 ?>
+
+</fieldset>
+
+<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Atualizar', 'class' => 'ls-btn-primary')); ?>

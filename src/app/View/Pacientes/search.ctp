@@ -1,21 +1,19 @@
 <h1 class="ls-title-intro ls-ico-search">Busca de Pacientes</h1>
 
+<?php echo $this->Form->create('Paciente', array('action' => 'search', 'class' => 'ls-form row')); ?>
+<fieldset>
 <?php
-
-echo $this->Form->create('Paciente', array('action' => 'search', 'class' => 'ls-form row'));
-
 echo $this->Form->input('parte_nome', array('div' => 'ls-label col-md-3', 'label' => 'Nome'));
-
-echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Buscar', 'class' => 'ls-btn'));
-
 ?>
+</fieldset>
+<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Buscar', 'class' => 'ls-btn-primary')); ?>
 
-<table class="ls-table ls-bg-header ls-no-hover">
+<table class="ls-table">
   <thead>
     <tr>
-      <th class="ls-data-descending"><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
+      <th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
       <th>Espécie</th>
-      <th class="ls-data-descending"><?php echo $this->Paginator->sort('Proprietario.nome', 'Proprietário'); ?></th>
+      <th><?php echo $this->Paginator->sort('Proprietario.nome', 'Proprietário'); ?></th>
     </tr>
   </thead>
 
@@ -24,14 +22,14 @@ echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Buscar', 'cla
       <tr>
         <td>
           <?php echo $this->Html->link($paciente['Paciente']['nome'],
-          array('controller' => 'pacientes', 'action' => 'index', $paciente['Proprietario']['id'], $paciente['Paciente']['id'])); ?>
+          array('controller' => 'pacientes', 'action' => 'view', $paciente['Paciente']['id'])); ?>
         </td>
 
         <td><?php echo $paciente['Paciente']['especie']?></td>
 
         <td>
           <?php echo $this->Html->link($paciente['Proprietario']['nome'],
-          array('controller' => 'proprietarios', 'action' => 'index', $paciente['Proprietario']['id'])); ?>
+          array('controller' => 'proprietarios', 'action' => 'view', $paciente['Proprietario']['id'])); ?>
         </td>
       </tr>
     <?php endforeach; ?>
