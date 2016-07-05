@@ -6,8 +6,12 @@
 <?php
 echo $this->Form->input('id', array('type' => 'hidden'));
 echo $this->Form->input('paciente_id', array('type' => 'hidden'));
-echo $this->Form->input('consulta_id', array('type' => 'hidden'));
-echo $this->Form->input('created', array('div' => 'ls-label col-md-3', 'label' => 'Data da Consulta','type' => 'date','dateFormat' => 'DMY')); ?>
+echo $this->Form->input('consulta_id', array('type' => 'hidden')); ?>
+
+<label class="ls-label col-md-3">
+  <b class="ls-label-text">Data do Retorno</b>
+  <?php echo $this->Form->input('data_retorno', array('class' => 'date datepicker', 'div' => false, 'label' => false)); ?>
+</label>
 
 <label class="ls-label col-md-3">
   <b class="ls-label-text">Clínica</b>

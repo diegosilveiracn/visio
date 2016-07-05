@@ -5,8 +5,12 @@
 <fieldset>
 <?php
 echo $this->Form->input('id', array('type' => 'hidden'));
-echo $this->Form->input('oftalmologista_id', array('type' => 'hidden'));
-echo $this->Form->input('created', array('div' => 'ls-label col-md-3', 'label' => 'Data da Consulta','type' => 'date','dateFormat' => 'DMY'));?>
+echo $this->Form->input('oftalmologista_id', array('type' => 'hidden')); ?>
+
+<label class="ls-label col-md-3">
+  <b class="ls-label-text">Data da Consulta</b>
+  <?php echo $this->Form->input('data_consulta', array('class' => 'date datepicker', 'div' => false, 'label' => false)); ?>
+</label>
 
 <label class="ls-label col-md-3">
   <b class="ls-label-text">Paciente</b>

@@ -7,7 +7,7 @@ class Consulta extends AppModel{
    public $belongsTo = array('Paciente', 'Clinica', 'Oftalmologista');
 
 	 public $validate = array(
-				'created' => array(
+				'data_consulta' => array(
 											'rule' => 'notEmpty',
 											'message' => 'O campo "data da consulta" é obrigatório!'
 											),

@@ -6,8 +6,14 @@
   <?php
   echo $this->Form->input('id', array('type' => 'hidden'));
 
-  echo $this->Form->input('nome', array('div' => 'ls-label col-md-3'));
-  echo $this->Form->input('data_nascimento', array('div' => 'ls-label col-md-3', 'label' => 'Data de Nascimento', 'dateFormat' => 'DMY'));
+  echo $this->Form->input('nome', array('div' => 'ls-label col-md-3')); ?>
+
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Data de Nascimento</b>
+    <?php echo $this->Form->input('data_nas', array('class' => 'date datepicker', 'div' => false, 'label' => false)); ?>
+  </label>
+
+  <?php
   echo $this->Form->input('especie', array('div' => 'ls-label col-md-3', 'label' => 'Espécie'));
   echo $this->Form->input('raca', array('div' => 'ls-label col-md-3', 'label' => 'Raça'));
   ?>

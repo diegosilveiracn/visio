@@ -75,6 +75,7 @@ class ConsultasController extends AppController {
             }
 
             $this->request->data['Consulta']['oftalmologista_id'] = $this->Auth->user('oftalmologista_id');
+            $this->request->data['Consulta']['created'] = date('Y-d-m', strtotime($this->request->data['Consulta']['data_consulta']));
 
             if ($this->Consulta->save($this->request->data)) {
                 $this->Session->setFlash('Cadastro realizado com sucesso!');
@@ -109,6 +110,7 @@ class ConsultasController extends AppController {
             }
 
             $this->request->data['Consulta']['oftalmologista_id'] = $this->Auth->user('oftalmologista_id');
+            $this->request->data['Consulta']['created'] = date('Y-d-m', strtotime($this->request->data['Consulta']['data_retorno']));
 
             if ($this->Consulta->save($this->request->data)) {
                 $this->Session->setFlash('Cadastro realizado com sucesso!');
@@ -126,6 +128,7 @@ class ConsultasController extends AppController {
 
         if ($this->request->is('get')) {
             $this->request->data = $this->Consulta->read();
+            $this->request->data['Consulta']['data_consulta'] = date('d/m/Y', strtotime($this->request->data['Consulta']['created']));
             $this->set('imagem_d', $this->request->data['Consulta']['imagem_d']);
             $this->set('imagem_e', $this->request->data['Consulta']['imagem_e']);
         } else {
@@ -150,6 +153,8 @@ class ConsultasController extends AppController {
                   $this->redirect(array('action' => 'index', $this->request->data['Consulta']['paciente_id']));
                 }
             }
+
+            $this->request->data['Consulta']['created'] = date('Y-d-m', strtotime($this->request->data['Consulta']['data_consulta']));
 
             if ($this->Consulta->save($this->request->data)) {
                $this->Session->setFlash('Alteração realizada com sucesso!');
@@ -166,6 +171,7 @@ class ConsultasController extends AppController {
 
         if ($this->request->is('get')) {
             $this->request->data = $this->Consulta->read();
+            $this->request->data['Consulta']['data_retorno'] = date('d/m/Y', strtotime($this->request->data['Consulta']['created']));
             $this->set('imagem_d', $this->request->data['Consulta']['imagem_d']);
             $this->set('imagem_e', $this->request->data['Consulta']['imagem_e']);
         } else {
@@ -190,6 +196,8 @@ class ConsultasController extends AppController {
                   $this->redirect(array('action' => 'index_retorno', $this->request->data['Consulta']['paciente_id'], $this->request->data['Consulta']['consulta_id']));
                 }
             }
+
+            $this->request->data['Consulta']['created'] = date('Y-d-m', strtotime($this->request->data['Consulta']['data_retorno']));
 
             if ($this->Consulta->save($this->request->data)) {
                $this->Session->setFlash('Alteração realizada com sucesso!');

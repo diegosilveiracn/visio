@@ -44,11 +44,17 @@ echo $this->Form->input('cidade', array('div' => 'ls-label col-md-3'));
 'TO' => 'Tocantins') ,'empty' => '')); ?>
 </label>
 
-<?php
-echo $this->Form->input('cep', array('div' => 'ls-label col-md-3', 'label' => 'CEP'));
-echo $this->Form->input('email', array('div' => 'ls-label col-md-3', 'label' => 'E-mail'));
-echo $this->Form->input('telefone', array('div' => 'ls-label col-md-3'));
-?>
+<label class="ls-label col-md-3">
+  <b class="ls-label-text">CEP</b>
+  <?php echo $this->Form->input('cep', array('class' => 'cep', 'div' => false, 'label' => false)); ?>
+</label>
+
+<?php echo $this->Form->input('email', array('div' => 'ls-label col-md-3', 'label' => 'E-mail')); ?>
+
+<label class="ls-label col-md-3">
+  <b class="ls-label-text">Telefone</b>
+  <?php echo $this->Form->input('telefone', array('class' => 'phone_with_ddd', 'div' => false, 'label' => false)); ?>
+</label>
 </fieldset>
 
 <?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Salvar', 'class' => 'ls-btn-primary')); ?>

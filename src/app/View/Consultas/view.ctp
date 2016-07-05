@@ -3,7 +3,7 @@
 <table class="ls-table ls-no-hover ls-table-striped">
 <tr>
   <th>Data</th>
-  <td><?php echo date('d/m/Y',strtotime($consulta['Consulta']['created'])); ?></td>
+  <td><?php echo date('d/m/Y', strtotime($consulta['Consulta']['created'])); ?></td>
 </tr>
 
 <tr>

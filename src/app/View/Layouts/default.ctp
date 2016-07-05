@@ -80,6 +80,8 @@
 		</main>
 
 		<?php echo $this->Html->script('jquery-2.1.4.min');?>
+		<?php echo $this->Html->script('jquery.mask.min');?>
 		<?php echo $this->Html->script('locastyle');?>
+		<?php echo $this->Html->script('extra');?>
 	</body>
 	</html>

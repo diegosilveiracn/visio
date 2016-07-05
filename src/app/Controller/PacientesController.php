@@ -30,13 +30,14 @@ class PacientesController extends AppController {
 
     public function add($proprietario_id = null) {
         if ($this->request->is('post')) {
+            $this->request->data['Paciente']['data_nascimento'] = date('Y-d-m', strtotime($this->request->data['Paciente']['data_nas']));
             if ($this->Paciente->save($this->request->data)) {
                 $this->Session->setFlash('Cadastro realizado com sucesso!');
                 $this->redirect(array('action' => 'index', $this->request->data['Paciente']['proprietario_id']));
             }
         }
 
-		$this->getProprietarios($proprietario_id);
+		    $this->getProprietarios($proprietario_id);
     }
 
     public function edit($id = null) {
@@ -44,10 +45,12 @@ class PacientesController extends AppController {
 
         if ($this->request->is('get')) {
             $this->request->data = $this->Paciente->read();
+            $this->request->data['Paciente']['data_nas'] = date('d/m/Y', strtotime($this->request->data['Paciente']['data_nascimento']));
         } else {
+            $this->request->data['Paciente']['data_nascimento'] = date('Y-d-m', strtotime($this->request->data['Paciente']['data_nas']));
             if ($this->Paciente->save($this->request->data)) {
                $this->Session->setFlash('Alteração realizada com sucesso!');
-			   $this->redirect(array('action' => 'index', $this->request->data['Paciente']['proprietario_id']));
+			         $this->redirect(array('action' => 'index', $this->request->data['Paciente']['proprietario_id']));
             }
         }
 

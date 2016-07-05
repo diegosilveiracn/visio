@@ -49,11 +49,17 @@ echo $this->Form->input(
 ?>
 </label>
 
-<?php
-echo $this->Form->input('cep', array('div' => 'ls-label col-md-3', 'label' => 'CEP'));
-echo $this->Form->input('email', array('div' => 'ls-label col-md-3', 'label' => 'E-mail'));
-echo $this->Form->input('telefone', array('div' => 'ls-label col-md-3'));
-?>
+<label class="ls-label col-md-3">
+  <b class="ls-label-text">CEP</b>
+  <?php echo $this->Form->input('cep', array('class' => 'cep', 'div' => false, 'label' => false)); ?>
+</label>
+
+<?php echo $this->Form->input('email', array('div' => 'ls-label col-md-3', 'label' => 'E-mail')); ?>
+
+<label class="ls-label col-md-3">
+  <b class="ls-label-text">Telefone</b>
+  <?php echo $this->Form->input('telefone', array('class' => 'phone_with_ddd', 'div' => false, 'label' => false)); ?>
+</label>
 
 </fieldset>
 

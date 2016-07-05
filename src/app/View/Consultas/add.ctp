@@ -7,13 +7,13 @@
 
   <label class="ls-label col-md-3">
     <b class="ls-label-text">Data da Consulta</b>
-    <?php echo $this->Form->input('created', array('class' => 'ls-custom', 'label' => false, 'type' => 'date' , 'dateFormat' => 'DMY')); ?>
+    <?php echo $this->Form->input('data_consulta', array('class' => 'date datepicker', 'div' => false, 'label' => false)); ?>
   </label>
 
-<label class="ls-label col-md-3">
-  <b class="ls-label-text">Paciente</b>
-  <?php echo $this->Form->input('paciente_id', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => $pacientes, 'empty' => '')); ?>
-</label>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Paciente</b>
+    <?php echo $this->Form->input('paciente_id', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => $pacientes, 'empty' => '')); ?>
+  </label>
 
 <label class="ls-label col-md-3">
   <b class="ls-label-text">Clínica</b>
