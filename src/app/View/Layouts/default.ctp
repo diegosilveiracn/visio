@@ -42,6 +42,9 @@
 	</div>
 
 	<aside class="ls-sidebar">
+
+		<div data-ls-module="dropdown" class="ls-dropdown ls-user-account"></div>
+
 		<div class="ls-sidebar-inner">
 			<a href="<?php echo $this->Html->url(array("controller" => "pages", "action" => "display", "bar"));?>"  class="ls-go-prev"><span class="ls-text">Tela inicial</span></a>
 
