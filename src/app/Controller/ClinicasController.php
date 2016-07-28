@@ -1,22 +1,22 @@
 <?php
 
 class ClinicasController extends AppController {
-	
+
     public $helpers = array ('Html','Form');
-    
+
     public $name = 'Clinicas';
-	
+
 	public $paginate = array(
         'limit' => 10,
         'order' => array('Clinica.nome' => 'ASC'));
-	
+
     public function index($id = null) {
 		if($id == null){
 			$clinicas = $this->paginate('Clinica');
         }else{
 			$clinicas = $this->paginate('Clinica', array('Clinica.id' => $id));
 		}
-		
+
 		$this->set('clinicas', $clinicas);
     }
 
@@ -36,7 +36,7 @@ class ClinicasController extends AppController {
 
     public function edit($id = null) {
         $this->Clinica->id = $id;
-        
+
         if ($this->request->is('get')) {
             $this->request->data = $this->Clinica->read();
         } else {
