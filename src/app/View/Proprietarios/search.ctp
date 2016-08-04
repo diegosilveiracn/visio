@@ -12,6 +12,7 @@ echo $this->Form->input('parte_nome', array('div' => 'ls-label col-md-3', 'label
   <thead>
     <tr>
       <th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -20,8 +21,12 @@ echo $this->Form->input('parte_nome', array('div' => 'ls-label col-md-3', 'label
       <tr>
         <td>
           <?php echo $this->Html->link($proprietario['Proprietario']['nome'],
-          array('controller' => 'proprietarios', 'action' => 'index', $proprietario['Proprietario']['id'])); ?>
+          array('controller' => 'proprietarios', 'action' => 'view', $proprietario['Proprietario']['id'])); ?>
         </td>
+
+        <th>
+          <?php echo $this->Html->link('Selecionar',	array ('controller' => 'proprietarios', 'action' => 'index', $proprietario['Proprietario']['id']), array('class' => 'ls-btn')); ?>
+        </th>
       </tr>
     <?php endforeach; ?>
   </tbody>

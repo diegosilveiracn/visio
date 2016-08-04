@@ -14,6 +14,7 @@ echo $this->Form->input('parte_nome', array('div' => 'ls-label col-md-3', 'label
       <th><?php echo $this->Paginator->sort('nome', 'Nome'); ?></th>
       <th>Espécie</th>
       <th><?php echo $this->Paginator->sort('Proprietario.nome', 'Proprietário'); ?></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -30,6 +31,10 @@ echo $this->Form->input('parte_nome', array('div' => 'ls-label col-md-3', 'label
         <td>
           <?php echo $this->Html->link($paciente['Proprietario']['nome'],
           array('controller' => 'proprietarios', 'action' => 'view', $paciente['Proprietario']['id'])); ?>
+        </td>
+
+        <td>
+          <?php echo $this->Html->link('Selecionar',	array ('controller' => 'pacientes', 'action' => 'index', $paciente['Proprietario']['id'], $paciente['Paciente']['id']), array('class' => 'ls-btn')); ?>
         </td>
       </tr>
     <?php endforeach; ?>
