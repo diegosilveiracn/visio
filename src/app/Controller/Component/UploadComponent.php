@@ -4,7 +4,7 @@ class UploadComponent extends Component {
 
     public $name = "Upload";
 
-    function copyUploadedImage($file){
+    public function copyUploadedImage($file){
       $path = WWW_ROOT . 'img/consultas/';
 
       $ext = substr(strtolower(strrchr($file['name'], '.')), 1);
@@ -20,10 +20,10 @@ class UploadComponent extends Component {
       }
     }
 
-    function deleteUploadedImage($file_name){
-       $path = WWW_ROOT . 'img/consultas/';
+    public function deleteUploadedImage($file_name){
+       $path = WWW_ROOT.'img/consultas/';
 
-       if(file_exists($path . $file_name)){
+       if($file_name != null && file_exists($path . $file_name)){
           unlink($path . $file_name);
        }
     }

@@ -80,7 +80,10 @@
 </fieldset>
 
 <fieldset>
-  <?php echo $this->Form->input('upload_d', array('type'=>'file', 'div' => 'ls-label col-md-3' ,'label' => 'Imagem do olho'));?>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Imagem do Olho</b>
+    <?php echo $this->Form->input('upload_d', array('type'=>'file', 'div' => false ,'label' => false));?>
+  </label>
 </fieldset>
 
 <fieldset>
@@ -130,7 +133,10 @@
 </fieldset>
 
 <fieldset>
-  <?php echo $this->Form->input('upload_e', array('type'=>'file','div' => 'ls-label col-md-3','label' => 'Imagem do olho'));?>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Imagem do Esquerdo</b>
+    <?php echo $this->Form->input('upload_e', array('type'=>'file','div' => false,'label' => false));?>
+  </label>
 </fieldset>
 
 <fieldset>
