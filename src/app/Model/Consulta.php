@@ -6,6 +6,10 @@ class Consulta extends AppModel{
 
    public $belongsTo = array('Paciente', 'Clinica', 'Oftalmologista');
 
+	 public $hasMany = array(
+		  'Consulta' => array('dependent' => true)
+	 );
+
 	 public $validate = array(
 				'data_consulta' => array(
 											'rule' => 'notEmpty',
