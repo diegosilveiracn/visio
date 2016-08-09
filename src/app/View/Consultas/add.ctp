@@ -2,9 +2,9 @@
 
 <?php echo $this->Form->create('Consulta', array('action' => 'add', 'class' => 'ls-form ls-form-horizontal row', 'type' => 'file')); ?>
 
-<fieldset>
-  <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
+<?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
 
+<fieldset>
   <label class="ls-label col-md-3">
     <b class="ls-label-text">Data da Consulta</b>
     <?php echo $this->Form->input('data_consulta', array('class' => 'date datepicker', 'div' => false, 'label' => false)); ?>
@@ -19,7 +19,6 @@
     <b class="ls-label-text">Clínica</b>
     <?php echo $this->Form->input('clinica_id', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => $clinicas, 'empty' => '')); ?>
   </label>
-
 </fieldset>
 
 <fieldset>
@@ -29,12 +28,11 @@
   </label>
 </fieldset>
 
-<fieldset>
-  <h4 class="ls-title-4">Olho Direito</h4>
-</fieldset>
+<hr>
 
 <fieldset>
-  <hr/>
+  <h4 class="ls-title-4">Olho Direito</h4>
+  <br/>
 
   <label class="ls-label col-md-3">
     <b class="ls-label-text">Reflexos Direto</b>
@@ -80,15 +78,18 @@
 </fieldset>
 
 <fieldset>
-  <label class="ls-label col-md-3">
-    <b class="ls-label-text">Imagem do Olho</b>
-    <?php echo $this->Form->input('upload_d', array('type'=>'file', 'div' => false ,'label' => false));?>
+  <label class="ls-btn">
+    Carregar Imagem
+    <?php echo $this->Form->input('upload_d', array('type'=>'file', 'class' => 'ls-display-none', 'div' => false ,'label' => false));?>
   </label>
 </fieldset>
 
+<hr>
+
 <fieldset>
   <h4 class="ls-title-4">Olho Esquerdo</h4>
-  <hr/>
+  <br/>
+
     <label class="ls-label col-md-3">
       <b class="ls-label-text">Reflexos Direto</b>
       <?php echo $this->Form->input('reflexos_direto_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
@@ -133,14 +134,15 @@
 </fieldset>
 
 <fieldset>
-  <label class="ls-label col-md-3">
-    <b class="ls-label-text">Imagem do Esquerdo</b>
-    <?php echo $this->Form->input('upload_e', array('type'=>'file','div' => false,'label' => false));?>
+  <label class="ls-btn">
+    Carregar Imagem
+    <?php echo $this->Form->input('upload_e', array('type'=>'file', 'class' => 'ls-display-none', 'div' => false,'label' => false));?>
   </label>
 </fieldset>
 
+<hr>
+
 <fieldset>
-  <hr>
   <label class="ls-label">
     <b class="ls-label-text">Diagnóstico</b>
     <?php echo $this->Form->input('diagnostico', array('class' => 'ls-textarea-resize-horizontal','div' => false, 'label' => false)); ?>

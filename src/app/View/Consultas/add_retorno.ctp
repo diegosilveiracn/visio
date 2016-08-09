@@ -26,12 +26,11 @@
   </label>
 </fieldset>
 
-<fieldset>
-  <h4 class="ls-title-4">Olho Direito</h4>
-</fieldset>
+<hr>
 
 <fieldset>
-    <hr/>
+    <h4 class="ls-title-4">Olho Direito</h4>
+    <br/>
 
     <label class="ls-label col-md-3">
       <b class="ls-label-text">Reflexos Direto</b>
@@ -78,41 +77,47 @@
 </fieldset>
 
 <fieldset>
-  <?php echo $this->Form->input('upload_d', array('type'=>'file','div' => 'ls-label col-md-3', 'label' => 'Imagem do olho'));?>
+  <label class="ls-btn">
+    Carregar Imagem
+    <?php echo $this->Form->input('upload_d', array('type'=>'file', 'class' => 'ls-display-none', 'div' => false, 'label' => false));?>
+  </label>
 </fieldset>
+
+<hr>
 
 <fieldset>
   <h4 class="ls-title-4">Olho Esquerdo</h4>
-  <hr/>
-    <label class="ls-label col-md-3">
-      <b class="ls-label-text">Reflexos Direto</b>
-      <?php echo $this->Form->input('reflexos_direto_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
-    </label>
+  <br/>
 
-    <label class="ls-label col-md-3">
-      <b class="ls-label-text">Reflexos Consensual</b>
-      <?php echo $this->Form->input('reflexos_consensual_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
-    </label>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Reflexos Direto</b>
+    <?php echo $this->Form->input('reflexos_direto_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+  </label>
 
-    <label class="ls-label col-md-3">
-        <b class="ls-label-text">Reflexos de Ameaça</b>
-        <?php echo $this->Form->input('reflexos_ameaca_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
-    </label>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Reflexos Consensual</b>
+    <?php echo $this->Form->input('reflexos_consensual_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+  </label>
 
-    <?php
-    echo $this->Form->input('schirmer_e', array('div' => 'ls-label col-md-3', 'label' => 'Shirmer (mm/min)'));
-    echo $this->Form->input('aplan_e', array('div' => 'ls-label col-md-3', 'label' => 'Aplan (mmHg)'));
-    ?>
+  <label class="ls-label col-md-3">
+      <b class="ls-label-text">Reflexos de Ameaça</b>
+      <?php echo $this->Form->input('reflexos_ameaca_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+  </label>
 
-    <label class="ls-label col-md-3">
-      <b class="ls-label-text">Fluoresceína</b>
-      <?php echo $this->Form->input('fluoresceina_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('-' => 'Negativo', '+' => 'Positivo'))); ?>
-    </label>
+  <?php
+  echo $this->Form->input('schirmer_e', array('div' => 'ls-label col-md-3', 'label' => 'Shirmer (mm/min)'));
+  echo $this->Form->input('aplan_e', array('div' => 'ls-label col-md-3', 'label' => 'Aplan (mmHg)'));
+  ?>
 
-    <label class="ls-label col-md-3">
-      <b class="ls-label-text">Jones</b>
-      <?php echo $this->Form->input('jones_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
-    </label>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Fluoresceína</b>
+    <?php echo $this->Form->input('fluoresceina_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('-' => 'Negativo', '+' => 'Positivo'))); ?>
+  </label>
+
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Jones</b>
+    <?php echo $this->Form->input('jones_e', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+  </label>
 </fieldset>
 
 <fieldset>
@@ -129,11 +134,16 @@
 </fieldset>
 
 <fieldset>
-  <?php echo $this->Form->input('upload_e', array('div' => 'ls-label col-md-3', 'type'=>'file', 'label' => 'Imagem do olho'));?>
+  <label class="ls-btn">
+    Carregar Imagem
+    <?php echo $this->Form->input('upload_e', array('div' => false, 'class'=> 'ls-display-none', 'type'=>'file', 'label' => false));?>
+  </label>
 </fieldset>
 
+<hr>
+
 <fieldset>
-  <hr>
+
   <label class="ls-label">
     <b class="ls-label-text">Diagnóstico</b>
     <?php echo $this->Form->input('diagnostico', array('class' => 'ls-textarea-resize-horizontal','div' => false, 'label' => false)); ?>
