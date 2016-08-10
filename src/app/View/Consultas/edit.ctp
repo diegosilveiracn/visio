@@ -58,15 +58,15 @@ echo $this->Form->input('oftalmologista_id', array('type' => 'hidden'));
   echo $this->Form->input('aplan_d', array('div' => 'ls-label col-md-3', 'label' => 'Aplan (mmHg)'));
   ?>
 
-    <label class="ls-label col-md-3">
-      <b class="ls-label-text">Fluoresceína</b>
-      <?php echo $this->Form->input('fluoresceina_d', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
-    </label>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Fluoresceína</b>
+    <?php echo $this->Form->input('fluoresceina_d', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+  </label>
 
-    <label class="ls-label col-md-3">
-      <b class="ls-label-text">Jones</b>
-      <?php echo $this->Form->input('jones_d', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
-    </label>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Jones</b>
+    <?php echo $this->Form->input('jones_d', array('div' => 'ls-custom-select', 'class' => 'ls-custom', 'label' => false, 'options' => array('+' => 'Positivo','-' => 'Negativo'))); ?>
+  </label>
 </fieldset>
 
 <fieldset>
@@ -83,9 +83,9 @@ echo $this->Form->input('oftalmologista_id', array('type' => 'hidden'));
 </fieldset>
 
 <fieldset>
-  <label class="ls-btn">
-    Carregar Imagem
-    <?php echo $this->Form->input('upload_d', array('type'=>'file', 'class' => 'ls-display-none', 'div' => false, 'label' => false)); ?>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Imagem</b>
+    <?php echo $this->Form->input('upload_d', array('type'=>'file', 'div' => false, 'label' => false)); ?>
   </label>
 </fieldset>
 
@@ -147,9 +147,9 @@ echo $this->Form->input('oftalmologista_id', array('type' => 'hidden'));
 </fieldset>
 
 <fieldset>
-  <label class="ls-btn">
-    Carregar Imagem
-    <?php echo $this->Form->input('upload_e', array('type'=>'file', 'class'=>'ls-display-none' ,'div' => false, 'label' => false)); ?>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Imagem</b>
+    <?php echo $this->Form->input('upload_e', array('type'=>'file', 'div' => false, 'label' => false)); ?>
   </label>
 </fieldset>
 

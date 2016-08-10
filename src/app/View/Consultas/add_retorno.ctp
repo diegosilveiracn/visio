@@ -77,9 +77,9 @@
 </fieldset>
 
 <fieldset>
-  <label class="ls-btn">
-    Carregar Imagem
-    <?php echo $this->Form->input('upload_d', array('type'=>'file', 'class' => 'ls-display-none', 'div' => false, 'label' => false));?>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Imagem</b>
+    <?php echo $this->Form->input('upload_d', array('type'=>'file', 'div' => false, 'label' => false));?>
   </label>
 </fieldset>
 
@@ -134,16 +134,15 @@
 </fieldset>
 
 <fieldset>
-  <label class="ls-btn">
-    Carregar Imagem
-    <?php echo $this->Form->input('upload_e', array('div' => false, 'class'=> 'ls-display-none', 'type'=>'file', 'label' => false));?>
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Imagem</b>
+    <?php echo $this->Form->input('upload_e', array('type'=>'file', 'div' => false, 'label' => false));?>
   </label>
 </fieldset>
 
 <hr>
 
 <fieldset>
-
   <label class="ls-label">
     <b class="ls-label-text">Diagnóstico</b>
     <?php echo $this->Form->input('diagnostico', array('class' => 'ls-textarea-resize-horizontal','div' => false, 'label' => false)); ?>
