@@ -62,4 +62,9 @@ echo $this->Form->input('cidade', array('div' => 'ls-label col-md-3'));
 
 </fieldset>
 
-<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Atualizar', 'class' => 'ls-btn-primary')); ?>
+<div class="ls-actions-btn">
+  <?php echo $this->Form->submit('Atualizar', array('div' => false, 'class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Voltar', array ('controller' => 'proprietarios', 'action' => 'index'), array('class' => 'ls-btn')); ?>
+</div>
+
+<?php echo $this->Form->end(); ?>

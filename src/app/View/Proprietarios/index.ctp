@@ -10,7 +10,7 @@ if ($msg != null){
 	</div>
 	<?php }?>
 
-	<?php echo $this->Html->link('Adicionar Proprietário', array ('controller' => 'proprietarios', 'action' => 'add'), array('class' => 'ls-btn-primary')); ?>
+	<?php echo $this->Html->link('Adicionar Proprietário', array ('controller' => 'proprietarios', 'action' => 'add'), array('class' => 'ls-btn')); ?>
 	<?php echo $this->Html->link('Buscar',	array ('controller' => 'proprietarios', 'action' => 'search'), array('class' => 'ls-btn')); ?>
 
 	<table class="ls-table">

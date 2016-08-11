@@ -72,5 +72,10 @@
 	?>
 		</td>
 	</tr>
-
 </table>
+
+<div class="ls-actions-btn">
+  <?php echo $this->Html->link('Editar', array ('controller' => 'proprietarios', 'action' => 'edit', $proprietario['Proprietario']['id']), array('class' => 'ls-btn')); ?>
+	<?php echo $this->Html->link('Excluir', array ('action' => 'delete', $proprietario['Proprietario']['id']), array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-btn-danger')); ?>
+  <?php echo $this->Html->link('Voltar', array ('controller' => 'proprietarios', 'action' => 'index'), array('class' => 'ls-btn')); ?>
+</div>
