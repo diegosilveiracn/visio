@@ -10,7 +10,7 @@ if ($msg != null){
   </div>
   <?php }?>
 
-  <?php echo $this->Html->link('Adicionar Clínica', array('controller' => 'clinicas', 'action' => 'add'), array('class' => 'ls-btn-primary')); ?>
+  <?php echo $this->Html->link('Adicionar Clínica', array('controller' => 'clinicas', 'action' => 'add'), array('class' => 'ls-btn')); ?>
 
   <table class="ls-table">
     <thead>

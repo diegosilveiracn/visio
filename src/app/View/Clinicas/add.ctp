@@ -64,6 +64,8 @@ echo $this->Form->input(
 </fieldset>
 
 <div class="ls-actions-btn">
-  <?php echo $this->Form->end(array('div' => false, 'label' => 'Salvar', 'class' => 'ls-btn-primary')); ?>
+  <?php echo $this->Form->submit('Salvar', array('div' => false, 'class' => 'ls-btn')); ?>
   <?php echo $this->Html->link('Voltar', array('controller' => 'clinicas', 'action' => 'index'), array('class' => 'ls-btn')); ?>
 </div>
+
+<?php echo $this->Form->end();?>
