@@ -154,4 +154,9 @@
   </label>
 </fieldset>
 
-<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Salvar', 'class' => 'ls-btn-primary')); ?>
+<div class="ls-actions-btn">
+  <?php echo $this->Form->submit('Salvar', array('div' => false, 'class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Voltar', array('controller' => 'consultas', 'action' => 'index_retorno', $paciente_id, $consulta_id), array('class' => 'ls-btn')); ?>
+</div>
+
+<?php echo $this->Form->end();?>

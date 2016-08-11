@@ -140,3 +140,9 @@
     <td><?php echo $this->Html->image('/img/consultas/'.$consulta['Consulta']['imagem_d'], array('alt' => 'Imagem do olho direito.', 'height' => 200)); ?></td>
   </tr>
 </table>
+
+<div class="ls-actions-btn">
+  <?php echo $this->Html->link('Editar', array('action' => 'edit', $consulta['Consulta']['id']), array('class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Excluir', array('action' => 'delete', $consulta['Consulta']['id']), array('confirm' => 'Tem certeza que deseja excluir?', 'class'=> 'ls-btn-danger')); ?>
+  <?php echo $this->Html->link('Voltar', array('controller' => 'consultas', 'action' => 'index', $consulta['Paciente']['id']), array('class' => 'ls-btn')); ?>
+</div>

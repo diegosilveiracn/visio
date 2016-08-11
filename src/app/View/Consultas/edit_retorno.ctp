@@ -169,4 +169,10 @@
   </label>
 </fieldset>
 
-<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Atualizar', 'class' => 'ls-btn-primary')); ?>
+<div class="ls-actions-btn">
+  <?php echo $this->Form->submit('Atualizar', array('div' => false, 'class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Excluir', array ('action' => 'delete_retorno', $this->request->data['Consulta']['id'], $this->request->data['Paciente']['id'], $this->request->data['Consulta']['consulta_id']), array('confirm' => 'Tem certeza que deseja excluir?',  'class'=> 'ls-btn-danger ls-divider')); ?>
+  <?php echo $this->Html->link('Voltar', array('controller' => 'consultas', 'action' => 'index_retorno', $this->request->data['Consulta']['paciente_id'], $this->request->data['Consulta']['consulta_id']), array('class' => 'ls-btn')); ?>
+</div>
+
+<?php echo $this->Form->end(); ?>

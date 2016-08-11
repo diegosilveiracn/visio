@@ -85,6 +85,7 @@ class ConsultasController extends AppController {
 
         $this->getPacientes($paciente_id);
         $this->getClinicas();
+        $this->set('paciente_id', $paciente_id);
     }
 
     public function add_retorno($paciente_id = null, $consulta_id = null) {
