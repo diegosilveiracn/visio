@@ -58,3 +58,9 @@
     <td><?php echo $clinica['Clinica']['telefone'] != null ? $clinica['Clinica']['telefone'] : "Não informado"; ?></td>
   </tr>
 </table>
+
+<div class="ls-actions-btn">
+  <?php echo $this->Html->link('Editar', array('action' => 'edit', $clinica['Clinica']['id']), array('class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Excluir', array('action' => 'delete', $clinica['Clinica']['id']), array('confirm' => 'Tem certeza que deseja excluir?', 'class'=> 'ls-btn-danger')); ?>
+  <?php echo $this->Html->link('Voltar', array('controller' => 'clinicas', 'action' => 'index'), array('class' => 'ls-btn')); ?>
+</div>

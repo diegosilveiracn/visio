@@ -61,4 +61,8 @@ echo $this->Form->input('uf', array('div' => 'ls-custom-select', 'class' => 'ls-
 
 </fieldset>
 
-<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Atualizar', 'class' => 'ls-btn-primary')); ?>
+<div class="ls-actions-btn">
+  <?php echo $this->Form->end(array('label' => 'Atualizar', 'class' => 'ls-btn-primary', 'div' => false)); ?>
+  <?php echo $this->Html->link('Excluir', array('action' => 'delete', $this->request->data['Clinica']['id']), array('confirm' => 'Tem certeza que deseja excluir?', 'class'=> 'ls-btn-danger')); ?>
+  <?php echo $this->Html->link('Voltar', array('controller' => 'clinicas', 'action' => 'index'), array('class' => 'ls-btn')); ?>
+</div>
