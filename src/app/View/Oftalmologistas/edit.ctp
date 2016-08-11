@@ -11,4 +11,10 @@ echo $this->Form->input('crmv', array('div' => 'ls-label col-md-3', 'label' => '
 ?>
 </fieldset>
 
-<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Atualizar', 'class' => 'ls-btn-primary')); ?>
+<div class="">
+  <?php echo $this->Form->submit('Atualizar', array('div' => false, 'class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Excluir', array ('action' => 'delete', $this->request->data['Oftalmologista']['id']), array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-btn-danger')); ?>
+  <?php echo $this->Html->link('Voltar', array ('controller' => 'oftalmologistas', 'action' => 'index'), array('class' => 'ls-btn')); ?>
+</div>
+
+<?php echo $this->Form->end();?>
