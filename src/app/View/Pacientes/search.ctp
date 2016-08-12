@@ -2,11 +2,15 @@
 
 <?php echo $this->Form->create('Paciente', array('action' => 'search', 'class' => 'ls-form row')); ?>
 <fieldset>
-<?php
-echo $this->Form->input('parte_nome', array('div' => 'ls-label col-md-3', 'label' => 'Nome'));
-?>
+
+<?php echo $this->Form->input('parte_nome', array('div' => 'ls-label col-md-3', 'label' => 'Nome')); ?>
+
+<div class="ls-actions-btn">
+  <?php echo $this->Form->submit('Buscar', array('div' => false, 'class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Voltar',	array ('controller' => 'pacientes', 'action' => 'index', $proprietario_id), array('class' => 'ls-btn')); ?>
+</div>
+
 </fieldset>
-<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Buscar', 'class' => 'ls-btn-primary')); ?>
 
 <table class="ls-table">
   <thead>

@@ -30,4 +30,10 @@ echo $this->Form->input('raca', array('div' => 'ls-label col-md-3', 'label' => '
 
 </fieldset>
 
-<?php echo $this->Form->end(array('div' => 'ls-actions-btn', 'label' => 'Atualizar', 'class' => 'ls-btn-primary')); ?>
+<div class="ls-actions-btn">
+    <?php echo $this->Form->submit('Atualizar', array('div' => false, 'class' => 'ls-btn')); ?>
+    <?php echo $this->Html->link('Excluir', array('action' => 'delete', $this->request->data['Paciente']['id'], $this->request->data['Proprietario']['id']), array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-btn-danger')); ?>
+    <?php echo $this->Html->link('Voltar',	array ('controller' => 'pacientes', 'action' => 'index', $this->request->data['Proprietario']['id']), array('class' => 'ls-btn')); ?>
+</div>
+
+<?php echo $this->Form->end();?>

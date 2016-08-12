@@ -37,6 +37,7 @@ class PacientesController extends AppController {
             }
         }
 
+        $this->set('proprietario_id', $proprietario_id);
 		    $this->getProprietarios($proprietario_id);
     }
 
@@ -54,23 +55,24 @@ class PacientesController extends AppController {
             }
         }
 
-		$this->getProprietarios();
+		    $this->getProprietarios();
     }
 
-    public function delete($id) {
+    public function delete($id, $proprietario_id = null) {
         if ($this->Paciente->delete($id)) {
             $this->Session->setFlash('Exclusão realizada com sucesso!');
-            $this->redirect(array('action' => 'index'));
+            $this->redirect(array('action' => 'index', $proprietario_id));
         }
     }
 
-	public function search(){
+	public function search($proprietario_id = null){
 		if ($this->request->is('post')) {
 			$pacientes = $this->paginate('Paciente', array('Paciente.nome LIKE' => '%'.$this->request->data['Paciente']['parte_nome'].'%'));
 		} else {
 			$pacientes = $this->paginate('Paciente');
 		}
 
+    $this->set('proprietario_id', $proprietario_id);
 		$this->set('pacientes', $pacientes);
 	}
 

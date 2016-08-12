@@ -26,3 +26,9 @@
  <td><?php echo $paciente['Proprietario']['nome'] != null ? $paciente['Proprietario']['nome'] : "Não informado" ; ?></td>
 </tr>
 </table>
+
+<div class="ls-actions-btn">
+    <?php echo $this->Html->link('Editar', array ('controller' => 'pacientes', 'action' => 'edit', $paciente['Paciente']['id']), array('class' => 'ls-btn')); ?>
+    <?php echo $this->Html->link('Excluir', array('action' => 'delete', $paciente['Paciente']['id'], $paciente['Proprietario']['id']), array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-btn-danger')); ?>
+    <?php echo $this->Html->link('Voltar',	array ('controller' => 'pacientes', 'action' => 'index', $paciente['Proprietario']['id']), array('class' => 'ls-btn')); ?>
+</div>

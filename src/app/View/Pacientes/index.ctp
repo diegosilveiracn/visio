@@ -10,8 +10,8 @@ if ($msg != null){
   </div>
   <?php }?>
 
-  <?php echo $this->Html->link('Adicionar Paciente',	array ('controller' => 'pacientes', 'action' => 'add',$proprietario_id), array('class' => 'ls-btn-primary')); ?>
-  <?php echo $this->Html->link('Buscar',	array ('controller' => 'pacientes', 'action' => 'search'), array('class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Adicionar Paciente',	array ('controller' => 'pacientes', 'action' => 'add', $proprietario_id), array('class' => 'ls-btn')); ?>
+  <?php echo $this->Html->link('Buscar',	array ('controller' => 'pacientes', 'action' => 'search', $proprietario_id), array('class' => 'ls-btn')); ?>
 
   <table  class="ls-table">
     <thead>
@@ -44,7 +44,7 @@ if ($msg != null){
                 <li><?php echo $this->Html->link('Editar', array ('action' => 'edit', $paciente['Paciente']['id'])); ?></li>
                 <li>
                   <?php echo $this->Html->link('Excluir',
-                  array('action' => 'delete', $paciente['Paciente']['id']),
+                  array('action' => 'delete', $paciente['Paciente']['id'], $paciente['Proprietario']['id']),
                   array('confirm' => 'Tem certeza que deseja excluir?', 'class' => 'ls-color-danger ls-divider'));
                   ?>
                 </li>
