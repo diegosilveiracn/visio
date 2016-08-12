@@ -8,9 +8,9 @@ if ($msg != null){
     <span data-ls-module="dismiss" class="ls-dismiss">&times;</span>
     <?php echo $msg; ?>
   </div>
-  <?php }?>
+<?php }?>
 
-  <?php echo $this->Html->link('Adicionar Usuário', array ('controller' => 'users', 'action' => 'add'), array('class' => 'ls-btn-primary')); ?>
+<?php echo $this->Html->link('Adicionar Usuário', array ('controller' => 'users', 'action' => 'add'), array('class' => 'ls-btn')); ?>
 
   <table class="ls-table">
     <thead>
