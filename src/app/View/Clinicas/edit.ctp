@@ -62,7 +62,7 @@ echo $this->Form->input('uf', array('div' => 'ls-custom-select', 'class' => 'ls-
 </fieldset>
 
 <div class="ls-actions-btn">
-  <?php echo $this->Form->submit('Alterar', array('div' => false, 'class' => 'ls-btn')); ?>
+  <?php echo $this->Form->submit('Atualizar', array('div' => false, 'class' => 'ls-btn')); ?>
   <?php echo $this->Html->link('Excluir', array('action' => 'delete', $this->request->data['Clinica']['id']), array('confirm' => 'Tem certeza que deseja excluir?', 'class'=> 'ls-btn-danger')); ?>
   <?php echo $this->Html->link('Voltar', array('controller' => 'clinicas', 'action' => 'index'), array('class' => 'ls-btn')); ?>
 </div>
